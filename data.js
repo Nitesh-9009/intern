@@ -24,8 +24,6 @@ const NITESH = {
       { view: "plan", icon: "▦", label: "4-Week Plan" },
       { view: "skills", icon: "▤", label: "Skills Tracker" },
       { view: "companies", icon: "★", label: "Target Companies" },
-      { view: "resume", icon: "✎", label: "Resume Fixes" },
-      { view: "resumes", icon: "▣", label: "Tailored Resumes" },
       { view: "stories", icon: "❝", label: "Interview Stories" },
       { view: "contacts", icon: "☏", label: "Senior Contacts" },
       { view: "resources", icon: "↗", label: "Resources" },
