@@ -270,9 +270,9 @@ td input:focus, td select:focus, td textarea:focus { background: #fff; border-co
 .login-sub { color: var(--muted); font-size: 13.5px; margin-bottom: 18px; }
 .login-profiles { display: flex; gap: 10px; margin-bottom: 14px; }
 .login-prof {
-  flex: 1; padding: 12px 0; border-radius: 11px; border: 1.5px solid var(--line);
-  background: #fff; color: var(--text); font-weight: 600; font-size: 14px; cursor: pointer;
-  font-family: inherit; transition: all 0.15s;
+  flex: 1; padding: 14px 0; border-radius: 11px; border: 1.5px solid var(--line);
+  background: #fff; color: var(--text); font-weight: 600; font-size: 15px; cursor: pointer;
+  font-family: inherit; transition: all 0.15s; text-decoration: none; display: block; text-align: center;
 }
 .login-prof:hover { border-color: var(--navy); }
 .login-prof.sel { background: var(--navy); color: #fff; border-color: var(--navy); }

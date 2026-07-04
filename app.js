@@ -908,26 +908,21 @@ function boot(profileId) {
 }
 
 function initLogin() {
+  // Profile can be chosen via a plain link (?u=nitesh) — the most reliable path.
+  const u = new URLSearchParams(location.search).get("u");
+  if (u && PROFILES[u]) {
+    localStorage.setItem(PROFILE_KEY, u);
+    history.replaceState(null, "", location.pathname);
+    boot(u);
+    return;
+  }
   const saved = localStorage.getItem(PROFILE_KEY);
   if (saved && PROFILES[saved]) { boot(saved); return; }
   showLogin();
 }
 function showLogin() {
   const ov = document.getElementById("login");
-  if (!ov) return;
-  ov.hidden = false;
-  const profBtns = ov.querySelectorAll(".login-prof");
-  // One tap = log in. No PIN, no Enter step — the simplest thing that can't fail.
-  const enter = (id) => {
-    if (!PROFILES[id]) return;
-    localStorage.setItem(PROFILE_KEY, id);
-    ov.hidden = true;
-    boot(id);
-  };
-  profBtns.forEach(b => {
-    b.addEventListener("click", () => enter(b.dataset.profile));
-    b.addEventListener("touchend", (e) => { e.preventDefault(); enter(b.dataset.profile); });
-  });
+  if (ov) ov.hidden = false;
 }
 
 /* ---- Boot ---- */
