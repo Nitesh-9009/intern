@@ -45,6 +45,13 @@ function save() {
 
 // Non-destructively merge new SEED skills / plan tasks into saved state.
 function reconcile(s) {
+  // Firebase drops empty objects/arrays, so guarantee these always exist.
+  if (!s || typeof s !== "object") s = {};
+  if (!s.tasksDone || typeof s.tasksDone !== "object") s.tasksDone = {};
+  if (!s.daily || typeof s.daily !== "object") s.daily = {};
+  if (!s.openWeeks || typeof s.openWeeks !== "object") s.openWeeks = {};
+  if (!Array.isArray(s.skills)) s.skills = JSON.parse(JSON.stringify(SEED.skills));
+  if (!Array.isArray(s.plan)) s.plan = JSON.parse(JSON.stringify(SEED.plan));
   if (Array.isArray(s.skills)) {
     const have = new Set(s.skills.map(k => k.id));
     SEED.skills.forEach(sk => { if (!have.has(sk.id)) s.skills.push(JSON.parse(JSON.stringify(sk))); });
