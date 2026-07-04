@@ -940,6 +940,9 @@ function showLogin() {
     boot(chosen);
   };
   if (form) form.addEventListener("submit", (e) => { e.preventDefault(); submit(); });
+  const go = document.getElementById("loginGo");
+  if (go) go.addEventListener("click", (e) => { e.preventDefault(); submit(); });
+  if (pin) pin.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); submit(); } });
 }
 
 /* ---- Boot ---- */

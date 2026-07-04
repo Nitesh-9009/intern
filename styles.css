@@ -283,6 +283,7 @@ td input:focus, td select:focus, td textarea:focus { background: #fff; border-co
 .login-card #loginPin:focus { outline: none; border-color: var(--navy); }
 .login-card .primary-btn { width: 100%; }
 .login-err { color: var(--accent); font-size: 12.5px; min-height: 16px; margin-top: 10px; }
+.login-ver { color: var(--muted); font-size: 10.5px; margin-top: 8px; opacity: 0.6; }
 
 .countdown { display: flex; gap: 14px; }
 .cd-box { background: var(--navy); color: #fff; border-radius: 12px; padding: 12px 16px; text-align: center; flex: 1; }
