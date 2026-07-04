@@ -50,18 +50,18 @@
 
   <!-- Login / profile picker -->
   <div id="login" class="login-overlay" hidden>
-    <div class="login-card">
+    <form class="login-card" id="loginForm">
       <div class="login-mark">PT</div>
       <h2>Prep Tracker</h2>
       <p class="login-sub">Who's using this?</p>
       <div class="login-profiles">
-        <button class="login-prof" data-profile="nitesh">Nitesh</button>
-        <button class="login-prof" data-profile="mishti">Mishti</button>
+        <button type="button" class="login-prof" data-profile="nitesh">Nitesh</button>
+        <button type="button" class="login-prof" data-profile="mishti">Mishti</button>
       </div>
       <input id="loginPin" type="password" inputmode="numeric" placeholder="Enter PIN" autocomplete="off" />
-      <button id="loginGo" class="primary-btn">Enter</button>
+      <button id="loginGo" type="submit" class="primary-btn">Enter</button>
       <p id="loginErr" class="login-err"></p>
-    </div>
+    </form>
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>

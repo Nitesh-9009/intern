@@ -918,24 +918,28 @@ function showLogin() {
   ov.hidden = false;
   const err = document.getElementById("loginErr");
   const pin = document.getElementById("loginPin");
-  const go = document.getElementById("loginGo");
+  const form = document.getElementById("loginForm");
   const profBtns = ov.querySelectorAll(".login-prof");
   let chosen = null;
-  profBtns.forEach(b => b.onclick = () => {
+  const selectProfile = (b) => {
     chosen = b.dataset.profile;
     profBtns.forEach(x => x.classList.toggle("sel", x === b));
     err.textContent = "";
     pin.focus();
-  });
+  };
+  profBtns.forEach(b => b.addEventListener("click", () => selectProfile(b)));
   const submit = () => {
-    if (!chosen) { err.textContent = "Pick a profile first."; return; }
-    if (pin.value !== PROFILES[chosen].meta.pin) { err.textContent = "Wrong PIN — try again."; pin.value = ""; return; }
+    if (!chosen) { err.textContent = "Tap your name (Nitesh or Mishti) first."; return; }
+    if (pin.value.trim() !== String(PROFILES[chosen].meta.pin)) {
+      err.textContent = "Wrong PIN — try again.";
+      pin.value = ""; pin.focus();
+      return;
+    }
     localStorage.setItem(PROFILE_KEY, chosen);
     ov.hidden = true;
     boot(chosen);
   };
-  go.onclick = submit;
-  pin.onkeydown = (e) => { if (e.key === "Enter") submit(); };
+  if (form) form.addEventListener("submit", (e) => { e.preventDefault(); submit(); });
 }
 
 /* ---- Boot ---- */
