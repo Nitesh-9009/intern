@@ -916,39 +916,18 @@ function showLogin() {
   const ov = document.getElementById("login");
   if (!ov) return;
   ov.hidden = false;
-  const err = document.getElementById("loginErr");
-  const pin = document.getElementById("loginPin");
-  const form = document.getElementById("loginForm");
-  const verEl = ov.querySelector(".login-ver");
-  const dbg = (m) => { if (verEl) verEl.textContent = "v5 · " + m; };
-  window.addEventListener("error", (e) => dbg("JS error: " + (e.message || e)));
   const profBtns = ov.querySelectorAll(".login-prof");
-  let chosen = null;
-  const selectProfile = (b) => {
-    chosen = b.dataset.profile;
-    profBtns.forEach(x => x.classList.toggle("sel", x === b));
-    err.textContent = "";
-    dbg("picked " + chosen);
-    pin.focus();
-  };
-  profBtns.forEach(b => b.addEventListener("click", () => selectProfile(b)));
-  const submit = () => {
-    dbg("enter tapped · chosen=" + chosen + " pinLen=" + (pin.value || "").trim().length);
-    if (!chosen) { err.textContent = "Tap your name (Nitesh or Mishti) first."; return; }
-    if (pin.value.trim() !== String(PROFILES[chosen].meta.pin)) {
-      err.textContent = "Wrong PIN — try again.";
-      pin.value = ""; pin.focus();
-      return;
-    }
-    dbg("logging in " + chosen + "…");
-    localStorage.setItem(PROFILE_KEY, chosen);
+  // One tap = log in. No PIN, no Enter step — the simplest thing that can't fail.
+  const enter = (id) => {
+    if (!PROFILES[id]) return;
+    localStorage.setItem(PROFILE_KEY, id);
     ov.hidden = true;
-    boot(chosen);
+    boot(id);
   };
-  if (form) form.addEventListener("submit", (e) => { e.preventDefault(); submit(); });
-  const go = document.getElementById("loginGo");
-  if (go) go.addEventListener("click", (e) => { e.preventDefault(); submit(); });
-  if (pin) pin.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); submit(); } });
+  profBtns.forEach(b => {
+    b.addEventListener("click", () => enter(b.dataset.profile));
+    b.addEventListener("touchend", (e) => { e.preventDefault(); enter(b.dataset.profile); });
+  });
 }
 
 /* ---- Boot ---- */

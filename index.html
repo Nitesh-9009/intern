@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
   <div class="app">
@@ -50,25 +50,23 @@
 
   <!-- Login / profile picker -->
   <div id="login" class="login-overlay" hidden>
-    <form class="login-card" id="loginForm">
+    <div class="login-card">
       <div class="login-mark">PT</div>
       <h2>Prep Tracker</h2>
-      <p class="login-sub">Who's using this?</p>
+      <p class="login-sub">Tap your name to enter</p>
       <div class="login-profiles">
         <button type="button" class="login-prof" data-profile="nitesh">Nitesh</button>
         <button type="button" class="login-prof" data-profile="mishti">Mishti</button>
       </div>
-      <input id="loginPin" type="text" inputmode="numeric" placeholder="Enter PIN" autocomplete="off" name="pt-pin" />
-      <button id="loginGo" type="button" class="primary-btn">Enter</button>
       <p id="loginErr" class="login-err"></p>
-      <p class="login-ver">v5</p>
-    </form>
+      <p class="login-ver">v6</p>
+    </div>
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
-  <script src="firebase-config.js?v=5"></script>
-  <script src="data.js?v=5"></script>
-  <script src="app.js?v=5"></script>
+  <script src="firebase-config.js?v=6"></script>
+  <script src="data.js?v=6"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
