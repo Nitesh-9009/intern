@@ -35,8 +35,12 @@ function load() {
 }
 
 function save() {
+  state.updatedAt = Date.now();
   localStorage.setItem(STORE_KEY, JSON.stringify(state));
-  if (firebaseReady) { clearTimeout(_pushTimer); _pushTimer = setTimeout(pushProgress, 800); }
+  if (firebaseReady) {
+    clearTimeout(_pushTimer);
+    _pushTimer = setTimeout(() => { pushProgress(); pushState(); }, 600);
+  }
 }
 
 // Non-destructively merge new SEED skills / plan tasks into saved state.
@@ -895,12 +899,34 @@ function initFirebase() {
     if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
     fbDb = firebase.database();
     firebaseReady = true;
-    pushProgress();
   } catch (e) { firebaseReady = false; }
 }
 function pushProgress() {
   if (!firebaseReady || !fbDb) return;
   try { fbDb.ref("progress/" + PROFILE_ID).set(buildProgressSnapshot()); } catch (e) { /* ignore */ }
+}
+function pushState() {
+  if (!firebaseReady || !fbDb) return;
+  try { fbDb.ref("state/" + PROFILE_ID).set(state); } catch (e) { /* ignore */ }
+}
+// Pull the latest full state from the cloud (if newer than local) and keep it
+// in sync across devices. Only adopts remote data that is NEWER, so nothing is clobbered.
+function cloudRestore() {
+  if (!firebaseReady || !fbDb) return;
+  const ref = fbDb.ref("state/" + PROFILE_ID);
+  const adopt = (remote) => {
+    if (remote && (remote.updatedAt || 0) > (state.updatedAt || 0)) {
+      state = reconcile(remote);
+      localStorage.setItem(STORE_KEY, JSON.stringify(state));
+      render();
+      return true;
+    }
+    return false;
+  };
+  ref.once("value").then((snap) => {
+    if (adopt(snap.val())) toast("Progress synced from cloud ✓");
+    ref.on("value", (s) => adopt(s.val()));   // live updates from your other devices
+  }).catch(() => { /* ignore */ });
 }
 
 /* ---- Boot / Login ---- */
@@ -913,8 +939,11 @@ function boot(profileId) {
   applyBranding();
   buildNav();
   initFirebase();
-  save();
+  // Persist locally only — do NOT push to the cloud yet, or an empty new device
+  // could overwrite good cloud data before we restore it.
+  localStorage.setItem(STORE_KEY, JSON.stringify(state));
   render();
+  cloudRestore();
 }
 
 function initLogin() {
