@@ -13,11 +13,12 @@
    to just the "progress" node.
    ===================================================================== */
 window.FIREBASE_CONFIG = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",   // e.g. https://your-project-default-rtdb.firebaseio.com
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+  apiKey: "AIzaSyAhzYW-RgWHERSJyOk7KJpUIeLer2eja44",
+  authDomain: "prep-tracker-4b2eb.firebaseapp.com",
+  databaseURL: "https://prep-tracker-4b2eb-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "prep-tracker-4b2eb",
+  storageBucket: "prep-tracker-4b2eb.firebasestorage.app",
+  messagingSenderId: "812121478287",
+  appId: "1:812121478287:web:b1699c6215eea8e1eb8cfa",
+  measurementId: "G-KPZFTH676Z"
 };
