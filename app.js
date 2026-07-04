@@ -873,9 +873,19 @@ function buildNav() {
     const b = el("button", "nav-item" + (i === 0 ? " active" : ""));
     b.dataset.view = it.view;
     b.innerHTML = `<span>${it.icon}</span> ${esc(it.label)}`;
-    b.addEventListener("click", () => { currentView = it.view; render(); });
+    b.addEventListener("click", () => { currentView = it.view; render(); closeSidebar(); });
     nav.appendChild(b);
   });
+}
+
+/* Mobile sidebar drawer */
+function openSidebar() {
+  document.getElementById("sidebar")?.classList.add("open");
+  const b = document.getElementById("backdrop"); if (b) b.hidden = false;
+}
+function closeSidebar() {
+  document.getElementById("sidebar")?.classList.remove("open");
+  const b = document.getElementById("backdrop"); if (b) b.hidden = true;
 }
 
 /* ---- Firebase live sync ---- */
@@ -928,4 +938,8 @@ function showLogin() {
 /* ---- Boot ---- */
 const logoutBtn = document.getElementById("logoutBtn");
 if (logoutBtn) logoutBtn.onclick = () => { localStorage.removeItem(PROFILE_KEY); location.reload(); };
+const menuBtn = document.getElementById("menuBtn");
+if (menuBtn) menuBtn.onclick = openSidebar;
+const backdrop = document.getElementById("backdrop");
+if (backdrop) backdrop.onclick = closeSidebar;
 initLogin();

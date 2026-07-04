@@ -7,12 +7,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
   <div class="app">
     <!-- Sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <div class="brand">
         <div class="brand-mark">NP</div>
         <div class="brand-text">
@@ -33,9 +33,12 @@
     <!-- Main -->
     <main class="main">
       <header class="topbar">
-        <div>
-          <h1 id="viewTitle">Dashboard</h1>
-          <p id="viewSub" class="muted">Hi Nitesh — let's get you that intern.</p>
+        <div class="topbar-left">
+          <button id="menuBtn" class="menu-btn" aria-label="Open menu">☰</button>
+          <div>
+            <h1 id="viewTitle">Dashboard</h1>
+            <p id="viewSub" class="muted">Hi Nitesh — let's get you that intern.</p>
+          </div>
         </div>
         <div class="topbar-right">
           <div class="streak-pill" id="streakPill">🔥 0 day streak</div>
@@ -46,6 +49,7 @@
     </main>
   </div>
 
+  <div id="backdrop" class="backdrop" hidden></div>
   <div id="toast" class="toast"></div>
 
   <!-- Login / profile picker -->
@@ -59,14 +63,14 @@
         <a class="login-prof" href="?u=mishti">Mishti</a>
       </div>
       <p id="loginErr" class="login-err"></p>
-      <p class="login-ver">v9</p>
+      <p class="login-ver">v10</p>
     </div>
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
-  <script src="firebase-config.js?v=9"></script>
-  <script src="data.js?v=9"></script>
-  <script src="app.js?v=9"></script>
+  <script src="firebase-config.js?v=10"></script>
+  <script src="data.js?v=10"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>
