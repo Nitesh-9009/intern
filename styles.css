@@ -257,6 +257,7 @@ td input:focus, td select:focus, td textarea:focus { background: #fff; border-co
   background: linear-gradient(160deg, var(--navy-deep), var(--navy));
   display: flex; align-items: center; justify-content: center; padding: 20px;
 }
+.login-overlay[hidden] { display: none !important; }
 .login-card {
   background: var(--card); border-radius: 18px; padding: 34px 32px; width: 340px; max-width: 100%;
   box-shadow: 0 20px 60px rgba(0,0,0,0.3); text-align: center;
