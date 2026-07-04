@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nitesh · Intern Prep Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">NP</div>
+        <div class="brand-text">
+          <strong>Intern Prep</strong>
+          <span>Profiles in Analytics</span>
+        </div>
+      </div>
+      <nav class="nav" id="nav"></nav>
+      <div class="sidebar-foot">
+        <button id="exportBtn" class="ghost-btn">⤓ Backup</button>
+        <button id="importBtn" class="ghost-btn">⤒ Restore</button>
+        <input type="file" id="importInput" accept="application/json" hidden />
+        <button id="logoutBtn" class="ghost-btn">⇦ Switch profile</button>
+        <button id="resetBtn" class="ghost-btn danger">⟲ Reset</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="viewTitle">Dashboard</h1>
+          <p id="viewSub" class="muted">Hi Nitesh — let's get you that intern.</p>
+        </div>
+        <div class="topbar-right">
+          <div class="streak-pill" id="streakPill">🔥 0 day streak</div>
+          <div class="date-pill" id="datePill"></div>
+        </div>
+      </header>
+      <section id="content" class="content"></section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <!-- Login / profile picker -->
+  <div id="login" class="login-overlay" hidden>
+    <div class="login-card">
+      <div class="login-mark">PT</div>
+      <h2>Prep Tracker</h2>
+      <p class="login-sub">Who's using this?</p>
+      <div class="login-profiles">
+        <button class="login-prof" data-profile="nitesh">Nitesh</button>
+        <button class="login-prof" data-profile="mishti">Mishti</button>
+      </div>
+      <input id="loginPin" type="password" inputmode="numeric" placeholder="Enter PIN" autocomplete="off" />
+      <button id="loginGo" class="primary-btn">Enter</button>
+      <p id="loginErr" class="login-err"></p>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

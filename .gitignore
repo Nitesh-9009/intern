@@ -1,0 +1,10 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+
+# Local backups exported from the app
+intern-prep-backup-*.json
+
+# Vercel
+.vercel
