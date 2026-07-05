@@ -412,9 +412,9 @@ const MISHTI = {
     ],
     titles: {
       dashboard: ["Dashboard", "Hi Mishti — first year is your head-start. Build the habit now."],
-      plan: ["Roadmap to 30 July", "Your 4-week sprint · DSA, Web Dev, AI/ML + creative & active balance."],
+      plan: ["Roadmap to 30 July", "Your 4-week sprint · DSA, Web Dev, AI/ML, open source + creative & active balance."],
       skills: ["Skills Tracker", "Every session counts. Consistency compounds fastest in year one."],
-      resources: ["Resources", "DSA, Web Dev, AI/ML, hackathons + a first-year career roadmap."],
+      resources: ["Resources", "DSA, Web Dev, AI/ML, open source, hackathons + a first-year career roadmap."],
       log: ["Daily Log", "Log today — even one focused hour keeps the streak alive."],
       friend: ["Friend's Progress", "See Nitesh's momentum live — progress only, nothing else."]
     }
@@ -432,6 +432,7 @@ const MISHTI = {
         ]},
         { label: "This week", tasks: [
           { id: "m1d4", tag: "career", text: "Set up GitHub + LinkedIn, and claim the GitHub Student Developer Pack" },
+          { id: "m1d8", tag: "oss", text: "Open Source — learn the GitHub flow (fork → branch → commit → Pull Request) with 'First Contributions', then make your practice PR" },
           { id: "m1d5", tag: "hack", text: "Browse Devfolio / Unstop — bookmark 1 beginner-friendly hackathon to try this month" },
           { id: "m1d6", tag: "art", text: "1 arts & craft session — keep it fun, it recharges you" },
           { id: "m1d7", tag: "sport", text: "3 sports / workout sessions this week" },
@@ -448,6 +449,7 @@ const MISHTI = {
         ]},
         { label: "This week", tasks: [
           { id: "m2d4", tag: "career", text: "Start 1 mini project (portfolio page or to-do app) — push it to GitHub" },
+          { id: "m2d8", tag: "oss", text: "Open Source — find a 'good first issue' in a beginner web-dev repo (EddieHub / freeCodeCamp); comment to claim it & read the CONTRIBUTING guide" },
           { id: "m2d5", tag: "hack", text: "Decide: join a hackathon this month? Form / join a team or plan a solo build" },
           { id: "m2d6", tag: "art", text: "1 arts & craft session" },
           { id: "m2d7", tag: "sport", text: "3 sports sessions" },
@@ -464,6 +466,7 @@ const MISHTI = {
         ]},
         { label: "This week", tasks: [
           { id: "m3d4", tag: "career", text: "Write a clear README for your project; share it on LinkedIn" },
+          { id: "m3d8", tag: "oss", text: "Open Source — submit your first REAL PR (docs fix or small bug); politely respond to the maintainer's review and update it" },
           { id: "m3d5", tag: "hack", text: "Work on the hackathon build / or a weekend mini-project" },
           { id: "m3d6", tag: "art", text: "1 arts & craft session" },
           { id: "m3d7", tag: "sport", text: "3 sports sessions" },
@@ -477,7 +480,8 @@ const MISHTI = {
           { id: "m4d1", tag: "dsa", text: "✅ Reach ~60–80 DSA problems total" },
           { id: "m4d2", tag: "web", text: "✅ Finish + deploy 1 web project (Vercel / Netlify)" },
           { id: "m4d3", tag: "aiml", text: "✅ Complete 1 ML course module + 1 Kaggle notebook" },
-          { id: "m4d4", tag: "career", text: "Update resume / LinkedIn with your projects; ask Nitesh for feedback" },
+          { id: "m4d8", tag: "oss", text: "✅ Get 1–2 PRs merged; try 1 slightly bigger issue; bookmark GSSoC / Outreachy for the next cycle" },
+          { id: "m4d4", tag: "career", text: "Update resume / LinkedIn with your projects + merged PRs; ask Nitesh for feedback" },
         ]},
         { label: "Wrap up", tasks: [
           { id: "m4d5", tag: "hack", text: "Submit the hackathon project OR publish your mini-project" },
@@ -494,6 +498,7 @@ const MISHTI = {
     { id: "web", name: "Web Dev Sessions", icon: "⌬", color: "#d8453e", count: 0, target: 40, unit: "sessions", note: "Odin Project / freeCodeCamp" },
     { id: "aiml", name: "AI/ML Lessons", icon: "◉", color: "#2e7d46", count: 0, target: 40, unit: "lessons", note: "Andrew Ng + Kaggle Learn" },
     { id: "hack", name: "Hackathon Days", icon: "⚡", color: "#9a531b", count: 0, target: 15, unit: "days", note: "Devfolio / Unstop / MLH" },
+    { id: "oss", name: "Open Source PRs", icon: "⑂", color: "#6e40c9", count: 0, target: 8, unit: "PRs", note: "Beginner → merged contributions" },
     { id: "art", name: "Arts & Craft", icon: "✿", color: "#b0417a", count: 0, target: 20, unit: "sessions", note: "Creative recharge" },
     { id: "sport", name: "Sports Sessions", icon: "⚽", color: "#0e7c86", count: 0, target: 30, unit: "sessions", note: "Stay active & sharp" },
   ],
@@ -531,6 +536,23 @@ const MISHTI = {
       { name: "Unstop", desc: "Hackathons, competitions, internships", url: "https://unstop.com/" },
       { name: "Major League Hacking (MLH)", desc: "Global student hackathons", url: "https://mlh.io/" },
       { name: "Devpost", desc: "Online hackathons + project gallery", url: "https://devpost.com/" },
+    ]},
+    { cat: "Open Source — Start Here & Programs", items: [
+      { name: "First Contributions", desc: "Make your very first PR safely (step-by-step)", url: "https://github.com/firstcontributions/first-contributions" },
+      { name: "EddieHub Community", desc: "Super beginner-friendly org that welcomes first PRs", url: "https://github.com/EddieHubCommunity" },
+      { name: "goodfirstissue.dev", desc: "Curated beginner issues to claim", url: "https://goodfirstissue.dev/" },
+      { name: "up-for-grabs", desc: "Find starter issues across many projects", url: "https://up-for-grabs.net/" },
+      { name: "GirlScript Summer of Code (GSSoC)", desc: "Beginner OSS program (India) — ideal for you", url: "https://gssoc.girlscript.tech/" },
+      { name: "Outreachy", desc: "Paid open-source internships for beginners", url: "https://www.outreachy.org/" },
+    ]},
+    { cat: "Open Source Orgs — by what you're learning", items: [
+      { name: "freeCodeCamp (Web / JS)", desc: "Huge JS codebase with good first issues", url: "https://github.com/freeCodeCamp/freeCodeCamp" },
+      { name: "Appwrite (Web / backend)", desc: "Beginner-friendly; lots of web issues", url: "https://github.com/appwrite/appwrite" },
+      { name: "Rocket.Chat (React / JS)", desc: "Real-world React contributions", url: "https://github.com/RocketChat/Rocket.Chat" },
+      { name: "MDN Web Docs (docs)", desc: "Improve web docs — easy first PRs", url: "https://github.com/mdn/content" },
+      { name: "Hugging Face (AI/ML · Python)", desc: "Docs + beginner ML issues", url: "https://github.com/huggingface/transformers" },
+      { name: "scikit-learn (ML · Python)", desc: "Classic ML lib — filter 'good first issue'", url: "https://github.com/scikit-learn/scikit-learn" },
+      { name: "Keras (Deep Learning)", desc: "Beginner-labeled deep-learning issues", url: "https://github.com/keras-team/keras" },
     ]},
     { cat: "Creative & Active", items: [
       { name: "Arts & Craft tutorials", desc: "YouTube — beginner projects", url: "https://www.youtube.com/results?search_query=arts+and+craft+for+beginners" },

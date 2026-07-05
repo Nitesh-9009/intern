@@ -260,6 +260,7 @@ td input:focus, td select:focus, td textarea:focus { background: #fff; border-co
 .tag-art { background: #f9eaf2; color: #b0417a; }
 .tag-sport { background: #e6f4f5; color: #0e7c86; }
 .tag-career { background: #eef1fb; color: #1b2559; }
+.tag-oss { background: #f1ebfb; color: #6e40c9; }
 
 /* Login / profile picker overlay */
 .login-overlay {
