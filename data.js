@@ -498,7 +498,7 @@ const MISHTI = {
     { id: "web", name: "Web Dev Sessions", icon: "⌬", color: "#d8453e", count: 0, target: 40, unit: "sessions", note: "Odin Project / freeCodeCamp" },
     { id: "aiml", name: "AI/ML Lessons", icon: "◉", color: "#2e7d46", count: 0, target: 40, unit: "lessons", note: "Andrew Ng + Kaggle Learn" },
     { id: "hack", name: "Hackathon Days", icon: "⚡", color: "#9a531b", count: 0, target: 15, unit: "days", note: "Devfolio / Unstop / MLH" },
-    { id: "oss", name: "Open Source PRs", icon: "⑂", color: "#6e40c9", count: 0, target: 8, unit: "PRs", note: "Beginner → merged contributions" },
+    { id: "oss", name: "Open Source Contributions", icon: "⑂", color: "#6e40c9", count: 0, target: 8, unit: "contributions", note: "Count each step: practice PR, issue claimed, PR opened, PR merged" },
     { id: "art", name: "Arts & Craft", icon: "✿", color: "#b0417a", count: 0, target: 20, unit: "sessions", note: "Creative recharge" },
     { id: "sport", name: "Sports Sessions", icon: "⚽", color: "#0e7c86", count: 0, target: 30, unit: "sessions", note: "Stay active & sharp" },
   ],

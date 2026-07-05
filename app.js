@@ -55,6 +55,11 @@ function reconcile(s) {
   if (Array.isArray(s.skills)) {
     const have = new Set(s.skills.map(k => k.id));
     SEED.skills.forEach(sk => { if (!have.has(sk.id)) s.skills.push(JSON.parse(JSON.stringify(sk))); });
+    // Refresh display metadata from SEED (labels/targets can change); keep the user's count.
+    s.skills.forEach(k => {
+      const seed = SEED.skills.find(x => x.id === k.id);
+      if (seed) { k.name = seed.name; k.note = seed.note; k.target = seed.target; k.unit = seed.unit; k.icon = seed.icon; k.color = seed.color; }
+    });
   }
   if (Array.isArray(s.plan)) {
     SEED.plan.forEach(seedWk => {
