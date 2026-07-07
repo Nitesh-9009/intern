@@ -261,6 +261,9 @@ td input:focus, td select:focus, td textarea:focus { background: #fff; border-co
 .tag-sport { background: #e6f4f5; color: #0e7c86; }
 .tag-career { background: #eef1fb; color: #1b2559; }
 .tag-oss { background: #f1ebfb; color: #6e40c9; }
+.tag-placement { background: #fdeceb; color: #d8453e; }
+.tag-soc { background: #eaf1ff; color: #2f4fb0; }
+.tag-camptest { background: #fbede3; color: #c2410c; }
 
 /* Login / profile picker overlay */
 .login-overlay {

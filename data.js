@@ -15,8 +15,8 @@ const NITESH = {
     pin: "2468",
     friendId: "mishti",
     countdown: [
-      { label: "days to prep ends", date: "2026-07-13" },
-      { label: "days to shortlists", date: "2026-07-20" },
+      { label: "days to resume submission", date: "2026-07-11" },
+      { label: "days to resume verification", date: "2026-07-14" },
       { label: "days to interviews", date: "2026-08-01" }
     ],
     nav: [
@@ -105,17 +105,41 @@ const NITESH = {
       ]
     },
     {
-      id: "w4", title: "Polish + Stories", dates: "Jul 7 – 13", badge: "wk4", range: ["2026-07-07", "2026-07-13"],
+      id: "w4", title: "Deadlines + Catch-up", dates: "Jul 7 – 13", badge: "wk4", range: ["2026-07-07", "2026-07-13"],
       days: [
-        { label: "This week", tasks: [
-          { id: "w4d1", tag: "mock", text: "3 mock interviews with seniors: tech (DSA+ML), analytics (SQL+case), HR" },
+        { label: "🚨 HARD DEADLINES — do these first (miss = out of placements)", tasks: [
+          { id: "w4p1", tag: "placement", text: "Registration + Payment — TODAY (Jul 7). Gatekeeper: no registration = you can't sit for placements. Do it before anything else." },
+          { id: "w4p2", tag: "placement", text: "Resume + Proof submission — by Jul 11. Upload your final 1-pager + every proof (internships, projects, achievements)." },
+          { id: "w4p3", tag: "placement", text: "Jul 12–14 — stay reachable for Placement Office resume verification; fix any flagged issue within hours." },
+        ]},
+        { label: "Clear the backlog (timeboxed — don't let it eat everything)", tasks: [
+          { id: "w4s1", tag: "soc", text: "SOC (Summer of Code) — write down EVERY pending deliverable; knock out the 2 most overdue today." },
+          { id: "w4s2", tag: "soc", text: "SOC — fixed 1.5 hr/day slot until caught up; message your mentor a short honest catch-up plan." },
+          { id: "w4c1", tag: "camptest", text: "Campus mock — attempt 1 pending APTITUDE test (timed), then review every mistake." },
+          { id: "w4c2", tag: "camptest", text: "Campus mock — attempt 1 pending CODING test (timed), then upsolve what you missed." },
+        ]},
+        { label: "Prep (fit around the above)", tasks: [
+          { id: "w4d1", tag: "mock", text: "2 mock interviews with seniors: tech (DSA+ML) + analytics (SQL+case)" },
           { id: "w4d2", tag: "meta", text: "Prepare 4 stories: hard problem, teamwork, failure+recovery, why-this-field" },
-          { id: "w4d3", tag: "resume", text: "Know every resume line cold — goal, alternatives, why, result, what you'd change" },
-          { id: "w4d4", tag: "apti", text: "Guesstimate / case practice (think out loud, process matters)" },
+          { id: "w4d4", tag: "apti", text: "Guesstimate / case practice 20 min (think out loud, process matters)" },
         ]},
         { label: "Maintenance", tasks: [
-          { id: "w4d5", tag: "dsa", text: "Light DSA + 1 contest. Don't burn out before season." },
-          { id: "w4d6", tag: "meta", text: "Sleep 7+ hrs. Stop DSA past midnight." },
+          { id: "w4d5", tag: "dsa", text: "Light DSA — revise, don't cram new. Don't burn out before season." },
+          { id: "w4d6", tag: "meta", text: "Sleep 7+ hrs. Protect your energy for the deadlines." },
+        ]},
+      ]
+    },
+    {
+      id: "w5", title: "Placement Season + Backlog Clear", dates: "Jul 14 – 27", badge: "wk4", range: ["2026-07-14", "2026-07-27"],
+      days: [
+        { label: "Daily", tasks: [
+          { id: "w5d1", tag: "soc", text: "SOC 1.5 hrs — keep clearing backlog; target: fully caught up by Jul 20." },
+          { id: "w5d2", tag: "camptest", text: "1 campus mock (alternate aptitude / coding) + full review — clear the backlog." },
+          { id: "w5d3", tag: "dsa", text: "DSA 1 hr — revise the weak topics your mocks exposed." },
+        ]},
+        { label: "This period", tasks: [
+          { id: "w5d4", tag: "meta", text: "Apply to companies as their tests open; update status in Target Companies." },
+          { id: "w5d5", tag: "mock", text: "2 more mock interviews; refine your stories from the feedback." },
         ]},
       ]
     }
@@ -130,6 +154,7 @@ const NITESH = {
     { id: "apti", name: "Aptitude / Puzzles", icon: "◇", color: "#9a531b", count: 0, target: 80, unit: "puzzles", note: "GFG + Brainstellar + IndiaBix" },
     { id: "oop", name: "OOP Practice Qs", icon: "◈", color: "#0e7c86", count: 0, target: 40, unit: "questions", note: "You know theory → drill Qs + LLD" },
     { id: "mock", name: "Mock Interviews", icon: "☻", color: "#1b2559", count: 0, target: 6, unit: "mocks", note: "With seniors — tech/analytics/HR" },
+    { id: "camptest", name: "Campus Mock Tests", icon: "▥", color: "#c2410c", count: 0, target: 8, unit: "tests", note: "Aptitude + coding OAs — clear the backlog" },
   ],
 
   /* ---- TARGET COMPANIES ---- */
