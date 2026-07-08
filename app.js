@@ -600,6 +600,23 @@ views.resources = () => {  const wrap = el("div");
   return wrap;
 };
 
+/* ---------- Additional Resources (shared links) ---------- */
+views.extra = () => {
+  const wrap = el("div");
+  (SEED.extra || []).forEach(group => {
+    wrap.appendChild(el("div", "section-title", group.cat));
+    const card = el("div", "card");
+    group.items.forEach(r => {
+      const a = el("a", "res-link");
+      a.href = r.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+      a.innerHTML = `<div><div class="r-name">${esc(r.name)}</div><div class="r-desc">${esc(r.desc)}</div></div><span class="r-arrow">↗</span>`;
+      card.appendChild(a);
+    });
+    wrap.appendChild(card);
+  });
+  return wrap;
+};
+
 /* ---------- Daily Log ---------- */
 views.log = () => {
   const wrap = el("div", "grid");

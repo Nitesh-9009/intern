@@ -40,6 +40,7 @@ const NITESH = {
       stories: ["Interview Stories", "3–4 stories: hard problem, teamwork, failure + recovery."],
       contacts: ["Senior Contacts", "Seniors are everything. Reach out NOW."],
       resources: ["Resources", "Curated — only what you actually need."],
+      extra: ["Additional Resources", "Cheatsheets, quant PDFs, company-wise LeetCode & SQL — your shared links."],
       log: ["Daily Log", "Consistency beats intensity. Keep the streak."],
       friend: ["Friend's Progress", "See Mishti's momentum live — progress only, nothing else."]
     }
@@ -261,6 +262,25 @@ const NITESH = {
     { cat: "Company Research", items: [
       { name: "Glassdoor", desc: "Interview experiences", url: "https://www.glassdoor.co.in/" },
       { name: "LinkedIn", desc: "Find seniors at target cos", url: "https://www.linkedin.com/" },
+    ]},
+  ],
+
+  /* ---- ADDITIONAL RESOURCES (your shared links) ---- */
+  extra: [
+    { cat: "ML / DL / Stats Cheatsheets", items: [
+      { name: "CS229 — Deep Learning Cheatsheet", desc: "Stanford · Shervine — DL quick reference", url: "https://stanford.edu/~shervine/teaching/cs229/cheatsheet-deep-learning" },
+      { name: "ML Cheatsheet (readthedocs)", desc: "Concepts, math & code for ML", url: "https://ml-cheatsheet.readthedocs.io/en/latest/" },
+      { name: "CME106 — Statistics Cheatsheet", desc: "Stanford · Shervine — probability & stats", url: "https://stanford.edu/~shervine/teaching/cme106/cheatsheet-statistics" },
+    ]},
+    { cat: "Probability & Puzzles (quant / analytics)", items: [
+      { name: "Brainstellar", desc: "Probability puzzles (Easy → Hard)", url: "https://brainstellar.com/" },
+      { name: "Probability (PDF)", desc: "Shared Google Drive notes", url: "https://drive.google.com/file/d/1boZw-GkQWVPI95tfpzmq7EizxxhMp6m/view?usp=sharing" },
+      { name: "Heard on the Street (PDF)", desc: "Classic quant interview questions", url: "https://drive.google.com/file/d/1EYHQC2OWjnwLv1i_RLeQPFFuL9AXE7pX/view?usp=sharing" },
+    ]},
+    { cat: "DSA / SQL", items: [
+      { name: "Princeton algs4 Cheatsheet", desc: "DSA you should know beforehand", url: "https://algs4.cs.princeton.edu/cheatsheet/" },
+      { name: "Company-wise LeetCode (2022)", desc: "Questions grouped by company", url: "https://github.com/hxu296/leetcode-company-wise-problems-2022" },
+      { name: "SQL Interview Questions", desc: "Curated SQL interview repo", url: "https://github.com/kansiris/SQL-interview-questions" },
     ]},
   ],
 
