@@ -27,6 +27,7 @@ const NITESH = {
       { view: "stories", icon: "❝", label: "Interview Stories" },
       { view: "contacts", icon: "☏", label: "Senior Contacts" },
       { view: "resources", icon: "↗", label: "Resources" },
+      { view: "extra", icon: "➕", label: "Extra Resources" },
       { view: "log", icon: "✓", label: "Daily Log" },
       { view: "friend", icon: "👥", label: "Friend's Progress" }
     ],

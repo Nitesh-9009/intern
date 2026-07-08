@@ -65,6 +65,8 @@ function reconcile(s) {
     SEED.plan.forEach(seedWk => {
       const wk = s.plan.find(w => w.id === seedWk.id);
       if (!wk) { s.plan.push(JSON.parse(JSON.stringify(seedWk))); return; }
+      // Refresh week metadata from SEED (range/title/dates can change); keep task-done state.
+      wk.range = seedWk.range; wk.title = seedWk.title; wk.dates = seedWk.dates; wk.badge = seedWk.badge;
       seedWk.days.forEach(seedDay => {
         const day = wk.days.find(d => d.label === seedDay.label);
         if (!day) { wk.days.push(JSON.parse(JSON.stringify(seedDay))); return; }
@@ -72,6 +74,8 @@ function reconcile(s) {
         seedDay.tasks.forEach(t => { if (!haveT.has(t.id)) day.tasks.push(JSON.parse(JSON.stringify(t))); });
       });
     });
+    // Keep weeks in SEED order so "this week" detection is stable.
+    s.plan.sort((a, b) => SEED.plan.findIndex(w => w.id === a.id) - SEED.plan.findIndex(w => w.id === b.id));
   }
   return s;
 }
