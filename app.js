@@ -289,14 +289,21 @@ views.plan = () => {
 function taskNode(t) {
   const done = !!state.tasksDone[t.id];
   const node = el("div", "task" + (done ? " done" : ""));
+  const links = Array.isArray(t.links) ? t.links : [];
+  const linksHtml = links.length
+    ? `<div class="t-links">${links.map(l => `<a class="t-link" href="${l.url}" target="_blank" rel="noopener noreferrer">↗ ${esc(l.label)}</a>`).join("")}</div>`
+    : "";
   node.innerHTML = `
     <input type="checkbox" ${done ? "checked" : ""} />
     <div class="t-body">
       <span class="t-tag tag-${t.tag}">${t.tag}</span>
       <div class="t-title">${esc(t.text)}</div>
+      ${linksHtml}
     </div>`;
   const cb = $("input", node);
+  node.querySelectorAll(".t-link").forEach(a => a.addEventListener("click", (e) => e.stopPropagation()));
   node.onclick = (e) => {
+    if (e.target.closest(".t-link")) return;   // don't toggle when opening a resource
     if (e.target !== cb) cb.checked = !cb.checked;
     state.tasksDone[t.id] = cb.checked;
     node.classList.toggle("done", cb.checked);

@@ -52,10 +52,10 @@ const NITESH = {
       id: "s1", title: "Season Grind — Core OA Prep", dates: "Jul 13 – 19", badge: "wk1", range: ["2026-07-13", "2026-07-19"],
       days: [
         { label: "Daily (Mon–Sun) — highest-leverage week, go hard", tasks: [
-          { id: "s1d1", tag: "dsa", text: "DSA 2 hrs — grind patterns: Two Pointers, Sliding Window, Binary Search, Trees, Graphs, DP (medium). Aim +5/day." },
-          { id: "s1d2", tag: "sql", text: "SQL 45 min — finish LeetCode 'Top SQL 50': window functions, CTEs, ranking, joins." },
-          { id: "s1d3", tag: "apti", text: "Aptitude 45 min — timed sets (IndiaBix / GFG): quant, DI, logical. Build speed, not perfection." },
-          { id: "s1d4", tag: "ml", text: "ML 1 hr — master 1 model/day (Linear/Logistic, Trees, RF, XGBoost, SVM, KMeans, PCA): why it works, when it fails, key hyperparameters." },
+          { id: "s1d1", tag: "dsa", text: "DSA 2 hrs — grind patterns: Two Pointers, Sliding Window, Binary Search, Trees, Graphs, DP (medium). Aim +5/day.", links: [ { label: "Strivers A2Z", url: "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/" }, { label: "NeetCode 150", url: "https://neetcode.io/practice" } ] },
+          { id: "s1d2", tag: "sql", text: "SQL 45 min — finish LeetCode 'Top SQL 50': window functions, CTEs, ranking, joins.", links: [ { label: "Top SQL 50", url: "https://leetcode.com/studyplan/top-sql-50/" } ] },
+          { id: "s1d3", tag: "apti", text: "Aptitude 45 min — timed sets (IndiaBix / GFG): quant, DI, logical. Build speed, not perfection.", links: [ { label: "IndiaBix", url: "https://www.indiabix.com/" }, { label: "GfG Aptitude", url: "https://www.geeksforgeeks.org/aptitude-questions-and-answers/" } ] },
+          { id: "s1d4", tag: "ml", text: "ML 1 hr — master 1 model/day (Linear/Logistic, Trees, RF, XGBoost, SVM, KMeans, PCA): why it works, when it fails, key hyperparameters.", links: [ { label: "StatQuest", url: "https://www.youtube.com/c/joshstarmer" }, { label: "Andrew Ng ML", url: "https://www.coursera.org/specializations/machine-learning-introduction" } ] },
         ]},
         { label: "This week", tasks: [
           { id: "s1c1", tag: "camptest", text: "Clear the campus-mock backlog: 1 timed aptitude + 1 timed coding mock; review EVERY mistake." },
@@ -72,16 +72,16 @@ const NITESH = {
       id: "s2", title: "Peak + Mocks + Apply", dates: "Jul 20 – 27", badge: "wk2", range: ["2026-07-20", "2026-07-27"],
       days: [
         { label: "Daily", tasks: [
-          { id: "s2d1", tag: "dsa", text: "DSA 1.5 hrs — 1 timed OA-style set + revise the weak patterns your mocks exposed." },
-          { id: "s2d2", tag: "stats", text: "Stats/Probability 45 min — Sheldon Ross + CME106 cheatsheet: expected value, Bayes, distributions." },
-          { id: "s2d3", tag: "apti", text: "Aptitude 30 min timed + 5 probability puzzles (Brainstellar / Heard on the Street)." },
-          { id: "s2d4", tag: "sql", text: "SQL 30 min — DataLemur medium (real analytics scenarios)." },
+          { id: "s2d1", tag: "dsa", text: "DSA 1.5 hrs — 1 timed OA-style set + revise the weak patterns your mocks exposed.", links: [ { label: "LeetCode", url: "https://leetcode.com/problemset/" }, { label: "Company-wise LC", url: "https://github.com/hxu296/leetcode-company-wise-problems-2022" } ] },
+          { id: "s2d2", tag: "stats", text: "Stats/Probability 45 min — Sheldon Ross + CME106 cheatsheet: expected value, Bayes, distributions.", links: [ { label: "CME106 Cheatsheet", url: "https://stanford.edu/~shervine/teaching/cme106/cheatsheet-statistics" } ] },
+          { id: "s2d3", tag: "apti", text: "Aptitude 30 min timed + 5 probability puzzles (Brainstellar / Heard on the Street).", links: [ { label: "Brainstellar", url: "https://brainstellar.com/" } ] },
+          { id: "s2d4", tag: "sql", text: "SQL 30 min — DataLemur medium (real analytics scenarios).", links: [ { label: "DataLemur", url: "https://datalemur.com/questions" } ] },
         ]},
         { label: "This week", tasks: [
           { id: "s2a1", tag: "meta", text: "APPLY to every open target (dream + realistic + safe) the moment its test opens; log status in Target Companies." },
           { id: "s2m1", tag: "mock", text: "2 mock interviews: 1 analytics (SQL + case + guesstimate), 1 tech (DSA + ML)." },
           { id: "s2c1", tag: "camptest", text: "2 more campus mocks (alternate aptitude / coding) + full review." },
-          { id: "s2o1", tag: "oop", text: "OOP — drill 20 interview Qs + 1 LLD problem (for Sony / Goldman-eng style rounds)." },
+          { id: "s2o1", tag: "oop", text: "OOP — drill 20 interview Qs + 1 LLD problem (for Sony / Goldman-eng style rounds).", links: [ { label: "GfG OOP Qs", url: "https://www.geeksforgeeks.org/oops-interview-questions/" }, { label: "Awesome LLD", url: "https://github.com/ashishps1/awesome-low-level-design" } ] },
         ]},
         { label: "By Sunday (checkpoint)", tasks: [
           { id: "s2k1", tag: "dsa", text: "✅ DSA total ≥ 90; mediums feel comfortable" },
@@ -93,8 +93,8 @@ const NITESH = {
       id: "s3", title: "Season Live — Execute", dates: "Jul 28 – Aug 10", badge: "wk4", range: ["2026-07-28", "2026-08-10"],
       days: [
         { label: "Daily — stay sharp, don't cram", tasks: [
-          { id: "s3d1", tag: "dsa", text: "DSA 1 hr — light revision of your strongest patterns; no new hard topics now." },
-          { id: "s3d2", tag: "apti", text: "Aptitude / guesstimate 30 min — think out loud, narrate your process." },
+          { id: "s3d1", tag: "dsa", text: "DSA 1 hr — light revision of your strongest patterns; no new hard topics now.", links: [ { label: "LeetCode", url: "https://leetcode.com/problemset/" } ] },
+          { id: "s3d2", tag: "apti", text: "Aptitude / guesstimate 30 min — think out loud, narrate your process.", links: [ { label: "IndiaBix", url: "https://www.indiabix.com/" } ] },
           { id: "s3d3", tag: "meta", text: "After EVERY OA / interview: 5-min debrief — what was asked, what to fix before the next one." },
         ]},
         { label: "Before each interview", tasks: [

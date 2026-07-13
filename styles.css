@@ -133,6 +133,13 @@ body {
 .task .t-title { font-size: 13.5px; font-weight: 500; }
 .task.done .t-title { text-decoration: line-through; color: var(--muted); }
 .task .t-tag { font-size: 10.5px; font-weight: 700; padding: 2px 7px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+.t-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
+.t-link {
+  font-size: 11.5px; font-weight: 600; text-decoration: none;
+  color: var(--navy); background: #eef1fb; border: 1px solid var(--line);
+  padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+}
+.t-link:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
 .tag-dsa { background: #e7eefb; color: #2f6fb0; }
 .tag-sql { background: #fde9e8; color: var(--accent); }
 .tag-ml { background: #e8f3ec; color: var(--green); }
