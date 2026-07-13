@@ -15,13 +15,12 @@ const NITESH = {
     pin: "2468",
     friendId: "mishti",
     countdown: [
-      { label: "days to resume submission", date: "2026-07-11" },
-      { label: "days to resume verification", date: "2026-07-14" },
+      { label: "days to shortlists", date: "2026-07-20" },
       { label: "days to interviews", date: "2026-08-01" }
     ],
     nav: [
       { view: "dashboard", icon: "◆", label: "Dashboard" },
-      { view: "plan", icon: "▦", label: "4-Week Plan" },
+      { view: "plan", icon: "▦", label: "Season Plan" },
       { view: "skills", icon: "▤", label: "Skills Tracker" },
       { view: "companies", icon: "★", label: "Target Companies" },
       { view: "stories", icon: "❝", label: "Interview Stories" },
@@ -32,8 +31,8 @@ const NITESH = {
       { view: "friend", icon: "👥", label: "Friend's Progress" }
     ],
     titles: {
-      dashboard: ["Dashboard", "Hi Nitesh — let's get you that intern."],
-      plan: ["4-Week Plan", "Jun 16 → Jul 13 · your structured runway before the chaos."],
+      dashboard: ["Dashboard", "Resume submitted ✓ — now we grind. Own the OAs, mocks & applications."],
+      plan: ["Season Plan", "Jul 13 → season · core OA prep → peak + apply → execute live. Grind harder now."],
       skills: ["Skills Tracker", "Count every problem. Momentum compounds."],
       companies: ["Target Companies", "Know your targets before the season opens. Editable — make it yours."],
       resume: ["Resume Fixes", "Fix the critical errors today. They get you rejected before content is read."],
@@ -47,101 +46,64 @@ const NITESH = {
     }
   },
 
-  /* ---- 4-WEEK PLAN ---- */
+  /* ---- SEASON GRIND PLAN (resume submitted ✓ · Jul 13 → season) ---- */
   plan: [
     {
-      id: "w1", title: "Foundation + Resume", dates: "Jun 16 – 22", badge: "wk1", range: ["2026-06-16", "2026-06-22"],
+      id: "s1", title: "Season Grind — Core OA Prep", dates: "Jul 13 – 19", badge: "wk1", range: ["2026-07-13", "2026-07-19"],
       days: [
-        { label: "Daily (Mon–Sun)", tasks: [
-          { id: "w1d1", tag: "dsa", text: "DSA 2 hrs — Strivers A2Z: Arrays, Hashing, Two Pointers, Binary Search" },
-          { id: "w1d2", tag: "sql", text: "SQL 1 hr — Mode tutorial (basic + intermediate)" },
-          { id: "w1d11", tag: "oop", text: "OOP 30 min — you know the theory; now grind questions: GfG OOP Interview Qs + code one small class/inheritance program daily" },
-        ]},
-        { label: "By Wednesday", tasks: [
-          { id: "w1d3", tag: "resume", text: "Fix all date typos (RBCCPS, Stock App, Summer of Core) — TODAY" },
-          { id: "w1d4", tag: "resume", text: "Merge the two duplicate stock-prediction projects into one block" },
-          { id: "w1d5", tag: "resume", text: "Rewrite bullets using Action → Method → Measurable Outcome" },
-          { id: "w1d6", tag: "resume", text: "Resume v2 done; send to 2 seniors for review" },
-        ]},
-        { label: "By Friday", tasks: [
-          { id: "w1d7", tag: "meta", text: "Build target-company spreadsheet — fill 10+ rows (Company→Role→Test→Topics→Senior)" },
-          { id: "w1d8", tag: "meta", text: "Message Aditya, Khushi & Hussain for resume feedback" },
-        ]},
-        { label: "By Sunday (checkpoint)", tasks: [
-          { id: "w1d9", tag: "dsa", text: "✅ 25 DSA problems completed" },
-          { id: "w1d10", tag: "sql", text: "✅ 30 StrataScratch easy problems completed" },
-        ]},
-      ]
-    },
-    {
-      id: "w2", title: "Volume Up", dates: "Jun 23 – 29", badge: "wk2", range: ["2026-06-23", "2026-06-29"],
-      days: [
-        { label: "Daily", tasks: [
-          { id: "w2d1", tag: "dsa", text: "DSA 2.5 hrs — Trees, BFS/DFS, Recursion (target +30 problems)" },
-          { id: "w2d2", tag: "sql", text: "SQL 1 hr — window functions, joins, GROUP BY/HAVING, CTEs" },
-          { id: "w2d3", tag: "stats", text: "Stats 1 hr — Brainstellar probability (all Easy + half Medium)" },
-          { id: "w2d7", tag: "oop", text: "OOP 45 min — practice questions (GfG + InterviewBit) + code 1 class-based program daily" },
+        { label: "Daily (Mon–Sun) — highest-leverage week, go hard", tasks: [
+          { id: "s1d1", tag: "dsa", text: "DSA 2 hrs — grind patterns: Two Pointers, Sliding Window, Binary Search, Trees, Graphs, DP (medium). Aim +5/day." },
+          { id: "s1d2", tag: "sql", text: "SQL 45 min — finish LeetCode 'Top SQL 50': window functions, CTEs, ranking, joins." },
+          { id: "s1d3", tag: "apti", text: "Aptitude 45 min — timed sets (IndiaBix / GFG): quant, DI, logical. Build speed, not perfection." },
+          { id: "s1d4", tag: "ml", text: "ML 1 hr — master 1 model/day (Linear/Logistic, Trees, RF, XGBoost, SVM, KMeans, PCA): why it works, when it fails, key hyperparameters." },
         ]},
         { label: "This week", tasks: [
-          { id: "w2d4", tag: "dsa", text: "Do 1 LeetCode weekly contest (participate, ignore rank)" },
-          { id: "w2d5", tag: "meta", text: "Talk to 3 seniors: AmEx, Fractal/ZS, Goldman analytics — ask test format + asked Qs" },
-          { id: "w2d6", tag: "sql", text: "✅ Reach 50 StrataScratch problems total" },
-          { id: "w2d8", tag: "sql", text: "✅ Finish LeetCode 'Top SQL 50' problems 1–25 (joins, aggregation, ranking)" },
+          { id: "s1c1", tag: "camptest", text: "Clear the campus-mock backlog: 1 timed aptitude + 1 timed coding mock; review EVERY mistake." },
+          { id: "s1s1", tag: "soc", text: "SOC — finish remaining deliverables, get fully caught up; send your mentor a status update." },
+          { id: "s1m1", tag: "mock", text: "1 mock interview with a senior (tech: DSA + ML)." },
+        ]},
+        { label: "By Sunday (checkpoint)", tasks: [
+          { id: "s1k1", tag: "dsa", text: "✅ DSA total ≥ 60 problems" },
+          { id: "s1k2", tag: "ml", text: "✅ 5 ML models mastered" },
         ]},
       ]
     },
     {
-      id: "w3", title: "ML Depth + Aptitude + Mock", dates: "Jun 30 – Jul 6", badge: "wk3", range: ["2026-06-30", "2026-07-06"],
-      days: [
-        { label: "Daily — highest leverage week", tasks: [
-          { id: "w3d1", tag: "ml", text: "ML 2 hrs — Linear/Logistic Reg, Decision Trees, RF, XGBoost, SVM, K-Means, PCA" },
-          { id: "w3d2", tag: "ml", text: "For each model: WHY it works, when it fails, assumptions, hyperparameters" },
-          { id: "w3d3", tag: "dsa", text: "DSA 1.5 hrs — DP (Strivers) + Graphs basics (medium level only)" },
-          { id: "w3d4", tag: "apti", text: "Aptitude 30 min — GFG + Brainstellar puzzles (5/day, build speed)" },
-        ]},
-        { label: "Weekend", tasks: [
-          { id: "w3d5", tag: "mock", text: "1 full mock OA (past AmEx/Goldman style, 60Q/60min timed)" },
-          { id: "w3d6", tag: "oop", text: "OOP — 1 LLD problem (parking lot, vending machine, ATM…) + revise 4 pillars with YOUR project examples" },
-          { id: "w3d7", tag: "sql", text: "✅ Finish LeetCode SQL 50 (remaining) + 5 DataLemur medium questions" },
-        ]},
-      ]
-    },
-    {
-      id: "w4", title: "Deadlines + Catch-up", dates: "Jul 7 – 13", badge: "wk4", range: ["2026-07-07", "2026-07-13"],
-      days: [
-        { label: "🚨 HARD DEADLINES — do these first (miss = out of placements)", tasks: [
-          { id: "w4p1", tag: "placement", text: "Registration + Payment — TODAY (Jul 7). Gatekeeper: no registration = you can't sit for placements. Do it before anything else." },
-          { id: "w4p2", tag: "placement", text: "Resume + Proof submission — by Jul 11. Upload your final 1-pager + every proof (internships, projects, achievements)." },
-          { id: "w4p3", tag: "placement", text: "Jul 12–14 — stay reachable for Placement Office resume verification; fix any flagged issue within hours." },
-        ]},
-        { label: "Clear the backlog (timeboxed — don't let it eat everything)", tasks: [
-          { id: "w4s1", tag: "soc", text: "SOC (Summer of Code) — write down EVERY pending deliverable; knock out the 2 most overdue today." },
-          { id: "w4s2", tag: "soc", text: "SOC — fixed 1.5 hr/day slot until caught up; message your mentor a short honest catch-up plan." },
-          { id: "w4c1", tag: "camptest", text: "Campus mock — attempt 1 pending APTITUDE test (timed), then review every mistake." },
-          { id: "w4c2", tag: "camptest", text: "Campus mock — attempt 1 pending CODING test (timed), then upsolve what you missed." },
-        ]},
-        { label: "Prep (fit around the above)", tasks: [
-          { id: "w4d1", tag: "mock", text: "2 mock interviews with seniors: tech (DSA+ML) + analytics (SQL+case)" },
-          { id: "w4d2", tag: "meta", text: "Prepare 4 stories: hard problem, teamwork, failure+recovery, why-this-field" },
-          { id: "w4d4", tag: "apti", text: "Guesstimate / case practice 20 min (think out loud, process matters)" },
-        ]},
-        { label: "Maintenance", tasks: [
-          { id: "w4d5", tag: "dsa", text: "Light DSA — revise, don't cram new. Don't burn out before season." },
-          { id: "w4d6", tag: "meta", text: "Sleep 7+ hrs. Protect your energy for the deadlines." },
-        ]},
-      ]
-    },
-    {
-      id: "w5", title: "Placement Season + Backlog Clear", dates: "Jul 14 – 27", badge: "wk4", range: ["2026-07-14", "2026-07-27"],
+      id: "s2", title: "Peak + Mocks + Apply", dates: "Jul 20 – 27", badge: "wk2", range: ["2026-07-20", "2026-07-27"],
       days: [
         { label: "Daily", tasks: [
-          { id: "w5d1", tag: "soc", text: "SOC 1.5 hrs — keep clearing backlog; target: fully caught up by Jul 20." },
-          { id: "w5d2", tag: "camptest", text: "1 campus mock (alternate aptitude / coding) + full review — clear the backlog." },
-          { id: "w5d3", tag: "dsa", text: "DSA 1 hr — revise the weak topics your mocks exposed." },
+          { id: "s2d1", tag: "dsa", text: "DSA 1.5 hrs — 1 timed OA-style set + revise the weak patterns your mocks exposed." },
+          { id: "s2d2", tag: "stats", text: "Stats/Probability 45 min — Sheldon Ross + CME106 cheatsheet: expected value, Bayes, distributions." },
+          { id: "s2d3", tag: "apti", text: "Aptitude 30 min timed + 5 probability puzzles (Brainstellar / Heard on the Street)." },
+          { id: "s2d4", tag: "sql", text: "SQL 30 min — DataLemur medium (real analytics scenarios)." },
         ]},
-        { label: "This period", tasks: [
-          { id: "w5d4", tag: "meta", text: "Apply to companies as their tests open; update status in Target Companies." },
-          { id: "w5d5", tag: "mock", text: "2 more mock interviews; refine your stories from the feedback." },
+        { label: "This week", tasks: [
+          { id: "s2a1", tag: "meta", text: "APPLY to every open target (dream + realistic + safe) the moment its test opens; log status in Target Companies." },
+          { id: "s2m1", tag: "mock", text: "2 mock interviews: 1 analytics (SQL + case + guesstimate), 1 tech (DSA + ML)." },
+          { id: "s2c1", tag: "camptest", text: "2 more campus mocks (alternate aptitude / coding) + full review." },
+          { id: "s2o1", tag: "oop", text: "OOP — drill 20 interview Qs + 1 LLD problem (for Sony / Goldman-eng style rounds)." },
+        ]},
+        { label: "By Sunday (checkpoint)", tasks: [
+          { id: "s2k1", tag: "dsa", text: "✅ DSA total ≥ 90; mediums feel comfortable" },
+          { id: "s2k2", tag: "stats", text: "✅ 25 stats / probability problems" },
+        ]},
+      ]
+    },
+    {
+      id: "s3", title: "Season Live — Execute", dates: "Jul 28 – Aug 10", badge: "wk4", range: ["2026-07-28", "2026-08-10"],
+      days: [
+        { label: "Daily — stay sharp, don't cram", tasks: [
+          { id: "s3d1", tag: "dsa", text: "DSA 1 hr — light revision of your strongest patterns; no new hard topics now." },
+          { id: "s3d2", tag: "apti", text: "Aptitude / guesstimate 30 min — think out loud, narrate your process." },
+          { id: "s3d3", tag: "meta", text: "After EVERY OA / interview: 5-min debrief — what was asked, what to fix before the next one." },
+        ]},
+        { label: "Before each interview", tasks: [
+          { id: "s3m1", tag: "mock", text: "1 mock interview the day before; rehearse your 4 stories out loud." },
+          { id: "s3r1", tag: "resume", text: "Know every resume line cold — goal, method, result, what you'd change." },
+        ]},
+        { label: "Non-negotiables", tasks: [
+          { id: "s3n1", tag: "meta", text: "Apply as new companies open — never miss a test window. Track everything in Target Companies." },
+          { id: "s3n2", tag: "meta", text: "Sleep 7+ hrs, eat, short walks. A rested brain clears OAs; a fried one doesn't." },
         ]},
       ]
     }

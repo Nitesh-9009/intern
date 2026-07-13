@@ -61,22 +61,9 @@ function reconcile(s) {
       if (seed) { k.name = seed.name; k.note = seed.note; k.target = seed.target; k.unit = seed.unit; k.icon = seed.icon; k.color = seed.color; }
     });
   }
-  if (Array.isArray(s.plan)) {
-    SEED.plan.forEach(seedWk => {
-      const wk = s.plan.find(w => w.id === seedWk.id);
-      if (!wk) { s.plan.push(JSON.parse(JSON.stringify(seedWk))); return; }
-      // Refresh week metadata from SEED (range/title/dates can change); keep task-done state.
-      wk.range = seedWk.range; wk.title = seedWk.title; wk.dates = seedWk.dates; wk.badge = seedWk.badge;
-      seedWk.days.forEach(seedDay => {
-        const day = wk.days.find(d => d.label === seedDay.label);
-        if (!day) { wk.days.push(JSON.parse(JSON.stringify(seedDay))); return; }
-        const haveT = new Set(day.tasks.map(t => t.id));
-        seedDay.tasks.forEach(t => { if (!haveT.has(t.id)) day.tasks.push(JSON.parse(JSON.stringify(t))); });
-      });
-    });
-    // Keep weeks in SEED order so "this week" detection is stable.
-    s.plan.sort((a, b) => SEED.plan.findIndex(w => w.id === a.id) - SEED.plan.findIndex(w => w.id === b.id));
-  }
+  // Plan structure always comes from SEED (task-done lives in state.tasksDone,
+  // so replacing the plan never loses completion state and old weeks are pruned).
+  s.plan = JSON.parse(JSON.stringify(SEED.plan));
   return s;
 }
 
