@@ -252,6 +252,19 @@ function logDelta(skillKey, delta, valNode) {
 /* ---------- 4-Week Plan ---------- */
 views.plan = () => {
   const wrap = el("div");
+
+  // DSA System card (mentor playbook) — shown when the profile defines it.
+  if (SEED.dsaSystem) {
+    const ds = SEED.dsaSystem;
+    const card = el("div", "card dsa-system");
+    let rules = (ds.rules || []).map(r =>
+      `<div class="ds-rule"><span class="ds-k">${esc(r.k)}</span><span class="ds-v">${esc(r.v)}</span></div>`
+    ).join("");
+    card.innerHTML = `<div class="card-h"><h3>${esc(ds.title)}</h3><span class="chip">read on bad days</span></div>
+      <p class="note" style="margin-bottom:12px;">${esc(ds.intro)}</p>${rules}`;
+    wrap.appendChild(card);
+  }
+
   state.plan.forEach(week => {
     const wp = weekProgress(week);
     const isOpen = state.openWeeks[week.id];

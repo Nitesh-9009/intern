@@ -46,6 +46,20 @@ const NITESH = {
     }
   },
 
+  /* ---- DSA SYSTEM (mentor playbook, shown on the Season Plan page) ---- */
+  dsaSystem: {
+    title: "Your DSA System",
+    intro: "One hard problem or one off-day is NEVER a verdict on your ability. Your logic didn't vanish — you were tired or the problem was just hard. Don't let a bad day become a bad week. Show up and use the system.",
+    rules: [
+      { k: "25-minute rule", v: "Give a problem an honest 25 min. Stuck → read the editorial, understand it fully, re-solve from scratch 2 days later. Never grind 2 hrs and kill your morale." },
+      { k: "Bad day = keep the streak", v: "On off-days do NOT quit and do NOT force hard problems. Just 1 EASY problem + revise yesterday's notes. Streak alive, spiral avoided." },
+      { k: "Patterns, not problem-count", v: "Master the ~10 patterns (two pointers, sliding window, binary search, trees/BFS-DFS, recursion, heaps, greedy, graphs, DP). Recognising the pattern is what makes good days repeatable." },
+      { k: "Revise weekly", v: "Re-solve old problems — ~20% of your DSA time. Ability fades without revision." },
+      { k: "Upsolve every OA", v: "After each test, solve the problems you couldn't + 3 similar ones. The OA that hurt you is your best syllabus." },
+      { k: "Judge the day right", v: "Score each day by 'did I show up and learn?' — never by 'did I crack the hardest problem?'" }
+    ]
+  },
+
   /* ---- SEASON GRIND PLAN (resume submitted ✓ · Jul 13 → season) ---- */
   plan: [
     {
@@ -78,6 +92,7 @@ const NITESH = {
           { id: "s2d4", tag: "sql", text: "SQL 30 min — DataLemur medium (real analytics scenarios).", links: [ { label: "DataLemur", url: "https://datalemur.com/questions" } ] },
         ]},
         { label: "This week", tasks: [
+          { id: "s2u1", tag: "dsa", text: "Upsolve the Goldman OA — re-solve all 4 coding problems + the DSA MCQ topics you missed; then solve 3 similar problems each. Today's test = tomorrow's practice.", links: [ { label: "LeetCode", url: "https://leetcode.com/problemset/" }, { label: "Company-wise LC", url: "https://github.com/hxu296/leetcode-company-wise-problems-2022" } ] },
           { id: "s2a1", tag: "meta", text: "APPLY to every open target (dream + realistic + safe) the moment its test opens; log status in Target Companies." },
           { id: "s2m1", tag: "mock", text: "2 mock interviews: 1 analytics (SQL + case + guesstimate), 1 tech (DSA + ML)." },
           { id: "s2c1", tag: "camptest", text: "2 more campus mocks (alternate aptitude / coding) + full review." },
