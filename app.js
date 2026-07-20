@@ -30,6 +30,7 @@ function load() {
     tasksDone: {},        // taskId -> true
     daily: {},            // "YYYY-MM-DD" -> { dsa, sql, ml, stats, apti, mock }
     openWeeks: { w1: true },
+    dsa: {},              // problemId -> "solved" | "revise"
     friendSnapshot: null  // read-only progress snapshot shared by a friend
   }));
 }
@@ -50,6 +51,7 @@ function reconcile(s) {
   if (!s.tasksDone || typeof s.tasksDone !== "object") s.tasksDone = {};
   if (!s.daily || typeof s.daily !== "object") s.daily = {};
   if (!s.openWeeks || typeof s.openWeeks !== "object") s.openWeeks = {};
+  if (!s.dsa || typeof s.dsa !== "object") s.dsa = {};
   if (!Array.isArray(s.skills)) s.skills = JSON.parse(JSON.stringify(SEED.skills));
   if (!Array.isArray(s.plan)) s.plan = JSON.parse(JSON.stringify(SEED.plan));
   if (Array.isArray(s.skills)) {
@@ -325,6 +327,55 @@ function taskNode(t) {
   };
   return node;
 }
+
+/* ---------- DSA Pattern Sheet ---------- */
+views.dsa = () => {
+  const wrap = el("div", "grid");
+  const sheet = SEED.dsaSheet || [];
+  if (!state.dsa) state.dsa = {};
+  const allIds = sheet.flatMap(g => g.items.map(i => i.id));
+  const total = allIds.length;
+  const sym = { todo: "○", solved: "✓", revise: "↻" };
+  const countOf = (st) => allIds.filter(id => (state.dsa[id] || "todo") === st).length;
+
+  // Summary card
+  const sum = el("div", "card");
+  const renderSummary = () => {
+    const solved = countOf("solved"), revise = countOf("revise"), todo = countOf("todo");
+    const pct = total ? Math.round((solved / total) * 100) : 0;
+    sum.innerHTML = `<div class="card-h"><h3>DSA Pattern Sheet — ${solved}/${total} solved</h3><span class="chip">${pct}%</span></div>
+      <div class="bar ${pct >= 100 ? 'green' : ''}"><span style="width:${pct}%"></span></div>
+      <div class="dsa-legend"><span><b>${solved}</b> ✓ solved</span><span><b>${revise}</b> ↻ to revise</span><span><b>${todo}</b> ○ to-do</span></div>
+      <p class="note" style="margin-top:10px;">Tap the circle to cycle: <b>○ to-do → ✓ solved → ↻ revise</b>. <b>25-min rule:</b> stuck after 25 min → read the editorial, understand it, mark it <b>↻</b>, and re-solve in 2 days. Clear your <b>↻</b> list every weekend — that's your revision system.</p>`;
+  };
+  renderSummary();
+  wrap.appendChild(sum);
+
+  sheet.forEach(group => {
+    const card = el("div", "card");
+    card.innerHTML = `<div class="card-h"><h3>${esc(group.pattern)}</h3></div><p class="note" style="margin:-4px 0 8px;">${esc(group.note || "")}</p>`;
+    group.items.forEach(it => {
+      const st = state.dsa[it.id] || "todo";
+      const row = el("div", "dsa-row st-" + st);
+      const sBtn = el("button", "dsa-status", sym[st]);
+      sBtn.onclick = () => {
+        const cur = state.dsa[it.id] || "todo";
+        const next = cur === "todo" ? "solved" : cur === "solved" ? "revise" : "todo";
+        if (next === "todo") delete state.dsa[it.id]; else state.dsa[it.id] = next;
+        row.className = "dsa-row st-" + next;
+        sBtn.textContent = sym[next];
+        save();
+        renderSummary();
+      };
+      const info = el("div", "dsa-info");
+      info.innerHTML = `<span class="dsa-lc">#${it.lc}</span><a class="dsa-name" href="${it.url}" target="_blank" rel="noopener noreferrer">${esc(it.name)}</a><span class="dsa-diff diff-${esc(it.diff.toLowerCase())}">${esc(it.diff)}</span>`;
+      row.append(sBtn, info);
+      card.appendChild(row);
+    });
+    wrap.appendChild(card);
+  });
+  return wrap;
+};
 
 /* ---------- Skills ---------- */
 views.skills = () => {

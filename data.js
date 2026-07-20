@@ -22,6 +22,7 @@ const NITESH = {
       { view: "dashboard", icon: "◆", label: "Dashboard" },
       { view: "plan", icon: "▦", label: "Season Plan" },
       { view: "skills", icon: "▤", label: "Skills Tracker" },
+      { view: "dsa", icon: "⊞", label: "DSA Sheet" },
       { view: "companies", icon: "★", label: "Target Companies" },
       { view: "stories", icon: "❝", label: "Interview Stories" },
       { view: "contacts", icon: "☏", label: "Senior Contacts" },
@@ -34,6 +35,7 @@ const NITESH = {
       dashboard: ["Dashboard", "Resume submitted ✓ — now we grind. Own the OAs, mocks & applications."],
       plan: ["Season Plan", "Jul 13 → season · core OA prep → peak + apply → execute live. Grind harder now."],
       skills: ["Skills Tracker", "Count every problem. Momentum compounds."],
+      dsa: ["DSA Pattern Sheet", "The curated OA-ready set, by pattern. Tap the circle: to-do → solved → revise. Live the 25-min rule."],
       companies: ["Target Companies", "Know your targets before the season opens. Editable — make it yours."],
       resume: ["Resume Fixes", "Fix the critical errors today. They get you rejected before content is read."],
       resumes: ["Tailored Resumes", "Genuine content only · pick a role version and 1- or 2-page length, then Download / Print as PDF."],
@@ -59,6 +61,106 @@ const NITESH = {
       { k: "Judge the day right", v: "Score each day by 'did I show up and learn?' — never by 'did I crack the hardest problem?'" }
     ]
   },
+
+  /* ---- DSA PATTERN SHEET (curated OA-ready set) ---- */
+  dsaSheet: [
+    { pattern: "1 · Arrays & Hashing", note: "Warm-up + hashing intuition. Start here.", items: [
+      { id: "lc1", lc: 1, name: "Two Sum", diff: "Easy", url: "https://leetcode.com/problems/two-sum/" },
+      { id: "lc217", lc: 217, name: "Contains Duplicate", diff: "Easy", url: "https://leetcode.com/problems/contains-duplicate/" },
+      { id: "lc49", lc: 49, name: "Group Anagrams", diff: "Medium", url: "https://leetcode.com/problems/group-anagrams/" },
+      { id: "lc347", lc: 347, name: "Top K Frequent Elements", diff: "Medium", url: "https://leetcode.com/problems/top-k-frequent-elements/" },
+      { id: "lc238", lc: 238, name: "Product of Array Except Self", diff: "Medium", url: "https://leetcode.com/problems/product-of-array-except-self/" },
+      { id: "lc128", lc: 128, name: "Longest Consecutive Sequence", diff: "Medium", url: "https://leetcode.com/problems/longest-consecutive-sequence/" },
+    ]},
+    { pattern: "2 · Two Pointers", note: "Sorted arrays, palindromes, pair/triplet sums.", items: [
+      { id: "lc125", lc: 125, name: "Valid Palindrome", diff: "Easy", url: "https://leetcode.com/problems/valid-palindrome/" },
+      { id: "lc167", lc: 167, name: "Two Sum II (sorted)", diff: "Medium", url: "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/" },
+      { id: "lc15", lc: 15, name: "3Sum", diff: "Medium", url: "https://leetcode.com/problems/3sum/" },
+      { id: "lc11", lc: 11, name: "Container With Most Water", diff: "Medium", url: "https://leetcode.com/problems/container-with-most-water/" },
+      { id: "lc42", lc: 42, name: "Trapping Rain Water", diff: "Hard", url: "https://leetcode.com/problems/trapping-rain-water/" },
+    ]},
+    { pattern: "3 · Sliding Window", note: "Contiguous subarray / substring with a shrinking window.", items: [
+      { id: "lc121", lc: 121, name: "Best Time to Buy & Sell Stock", diff: "Easy", url: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" },
+      { id: "lc3", lc: 3, name: "Longest Substring Without Repeating", diff: "Medium", url: "https://leetcode.com/problems/longest-substring-without-repeating-characters/" },
+      { id: "lc424", lc: 424, name: "Longest Repeating Char Replacement", diff: "Medium", url: "https://leetcode.com/problems/longest-repeating-character-replacement/" },
+      { id: "lc76", lc: 76, name: "Minimum Window Substring", diff: "Hard", url: "https://leetcode.com/problems/minimum-window-substring/" },
+    ]},
+    { pattern: "4 · Binary Search", note: "Sorted data, rotated arrays, 'search on the answer'.", items: [
+      { id: "lc704", lc: 704, name: "Binary Search", diff: "Easy", url: "https://leetcode.com/problems/binary-search/" },
+      { id: "lc33", lc: 33, name: "Search in Rotated Sorted Array", diff: "Medium", url: "https://leetcode.com/problems/search-in-rotated-sorted-array/" },
+      { id: "lc153", lc: 153, name: "Find Min in Rotated Sorted Array", diff: "Medium", url: "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/" },
+      { id: "lc875", lc: 875, name: "Koko Eating Bananas", diff: "Medium", url: "https://leetcode.com/problems/koko-eating-bananas/" },
+      { id: "lc4", lc: 4, name: "Median of Two Sorted Arrays", diff: "Hard", url: "https://leetcode.com/problems/median-of-two-sorted-arrays/" },
+    ]},
+    { pattern: "5 · Stack", note: "Matching, monotonic stack, next-greater.", items: [
+      { id: "lc20", lc: 20, name: "Valid Parentheses", diff: "Easy", url: "https://leetcode.com/problems/valid-parentheses/" },
+      { id: "lc155", lc: 155, name: "Min Stack", diff: "Medium", url: "https://leetcode.com/problems/min-stack/" },
+      { id: "lc739", lc: 739, name: "Daily Temperatures", diff: "Medium", url: "https://leetcode.com/problems/daily-temperatures/" },
+      { id: "lc84", lc: 84, name: "Largest Rectangle in Histogram", diff: "Hard", url: "https://leetcode.com/problems/largest-rectangle-in-histogram/" },
+    ]},
+    { pattern: "6 · Linked List", note: "Pointers, cycle detection, in-place reversal.", items: [
+      { id: "lc206", lc: 206, name: "Reverse Linked List", diff: "Easy", url: "https://leetcode.com/problems/reverse-linked-list/" },
+      { id: "lc21", lc: 21, name: "Merge Two Sorted Lists", diff: "Easy", url: "https://leetcode.com/problems/merge-two-sorted-lists/" },
+      { id: "lc141", lc: 141, name: "Linked List Cycle", diff: "Easy", url: "https://leetcode.com/problems/linked-list-cycle/" },
+      { id: "lc19", lc: 19, name: "Remove Nth Node From End", diff: "Medium", url: "https://leetcode.com/problems/remove-nth-node-from-end-of-list/" },
+      { id: "lc143", lc: 143, name: "Reorder List", diff: "Medium", url: "https://leetcode.com/problems/reorder-list/" },
+      { id: "lc146", lc: 146, name: "LRU Cache", diff: "Medium", url: "https://leetcode.com/problems/lru-cache/" },
+    ]},
+    { pattern: "7 · Trees", note: "DFS/BFS recursion — a Goldman/OA favourite.", items: [
+      { id: "lc226", lc: 226, name: "Invert Binary Tree", diff: "Easy", url: "https://leetcode.com/problems/invert-binary-tree/" },
+      { id: "lc104", lc: 104, name: "Maximum Depth of Binary Tree", diff: "Easy", url: "https://leetcode.com/problems/maximum-depth-of-binary-tree/" },
+      { id: "lc543", lc: 543, name: "Diameter of Binary Tree", diff: "Easy", url: "https://leetcode.com/problems/diameter-of-binary-tree/" },
+      { id: "lc235", lc: 235, name: "Lowest Common Ancestor of BST", diff: "Medium", url: "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" },
+      { id: "lc102", lc: 102, name: "Binary Tree Level Order Traversal", diff: "Medium", url: "https://leetcode.com/problems/binary-tree-level-order-traversal/" },
+      { id: "lc98", lc: 98, name: "Validate Binary Search Tree", diff: "Medium", url: "https://leetcode.com/problems/validate-binary-search-tree/" },
+      { id: "lc230", lc: 230, name: "Kth Smallest Element in a BST", diff: "Medium", url: "https://leetcode.com/problems/kth-smallest-element-in-a-bst/" },
+    ]},
+    { pattern: "8 · Heap / Priority Queue", note: "Top-K, streaming median, scheduling.", items: [
+      { id: "lc215", lc: 215, name: "Kth Largest Element in Array", diff: "Medium", url: "https://leetcode.com/problems/kth-largest-element-in-an-array/" },
+      { id: "lc621", lc: 621, name: "Task Scheduler", diff: "Medium", url: "https://leetcode.com/problems/task-scheduler/" },
+      { id: "lc295", lc: 295, name: "Find Median from Data Stream", diff: "Hard", url: "https://leetcode.com/problems/find-median-from-data-stream/" },
+    ]},
+    { pattern: "9 · Backtracking", note: "Subsets, permutations, grid search.", items: [
+      { id: "lc78", lc: 78, name: "Subsets", diff: "Medium", url: "https://leetcode.com/problems/subsets/" },
+      { id: "lc39", lc: 39, name: "Combination Sum", diff: "Medium", url: "https://leetcode.com/problems/combination-sum/" },
+      { id: "lc46", lc: 46, name: "Permutations", diff: "Medium", url: "https://leetcode.com/problems/permutations/" },
+      { id: "lc79", lc: 79, name: "Word Search", diff: "Medium", url: "https://leetcode.com/problems/word-search/" },
+    ]},
+    { pattern: "10 · Graphs", note: "BFS/DFS on grids, topological sort.", items: [
+      { id: "lc200", lc: 200, name: "Number of Islands", diff: "Medium", url: "https://leetcode.com/problems/number-of-islands/" },
+      { id: "lc133", lc: 133, name: "Clone Graph", diff: "Medium", url: "https://leetcode.com/problems/clone-graph/" },
+      { id: "lc207", lc: 207, name: "Course Schedule (topo sort)", diff: "Medium", url: "https://leetcode.com/problems/course-schedule/" },
+      { id: "lc994", lc: 994, name: "Rotting Oranges", diff: "Medium", url: "https://leetcode.com/problems/rotting-oranges/" },
+      { id: "lc417", lc: 417, name: "Pacific Atlantic Water Flow", diff: "Medium", url: "https://leetcode.com/problems/pacific-atlantic-water-flow/" },
+    ]},
+    { pattern: "11 · Dynamic Programming", note: "1D → 2D DP. The highest-value OA topic after trees.", items: [
+      { id: "lc70", lc: 70, name: "Climbing Stairs", diff: "Easy", url: "https://leetcode.com/problems/climbing-stairs/" },
+      { id: "lc198", lc: 198, name: "House Robber", diff: "Medium", url: "https://leetcode.com/problems/house-robber/" },
+      { id: "lc322", lc: 322, name: "Coin Change", diff: "Medium", url: "https://leetcode.com/problems/coin-change/" },
+      { id: "lc300", lc: 300, name: "Longest Increasing Subsequence", diff: "Medium", url: "https://leetcode.com/problems/longest-increasing-subsequence/" },
+      { id: "lc1143", lc: 1143, name: "Longest Common Subsequence", diff: "Medium", url: "https://leetcode.com/problems/longest-common-subsequence/" },
+      { id: "lc139", lc: 139, name: "Word Break", diff: "Medium", url: "https://leetcode.com/problems/word-break/" },
+      { id: "lc416", lc: 416, name: "Partition Equal Subset Sum (0/1 knapsack)", diff: "Medium", url: "https://leetcode.com/problems/partition-equal-subset-sum/" },
+    ]},
+    { pattern: "12 · Greedy & Intervals", note: "Sort-then-scan; interval merging.", items: [
+      { id: "lc53", lc: 53, name: "Maximum Subarray (Kadane)", diff: "Medium", url: "https://leetcode.com/problems/maximum-subarray/" },
+      { id: "lc55", lc: 55, name: "Jump Game", diff: "Medium", url: "https://leetcode.com/problems/jump-game/" },
+      { id: "lc56", lc: 56, name: "Merge Intervals", diff: "Medium", url: "https://leetcode.com/problems/merge-intervals/" },
+      { id: "lc57", lc: 57, name: "Insert Interval", diff: "Medium", url: "https://leetcode.com/problems/insert-interval/" },
+      { id: "lc435", lc: 435, name: "Non-overlapping Intervals", diff: "Medium", url: "https://leetcode.com/problems/non-overlapping-intervals/" },
+    ]},
+    { pattern: "13 · Bit Manipulation", note: "Short, high-frequency OA MCQs — learn the tricks.", items: [
+      { id: "lc136", lc: 136, name: "Single Number (XOR)", diff: "Easy", url: "https://leetcode.com/problems/single-number/" },
+      { id: "lc191", lc: 191, name: "Number of 1 Bits", diff: "Easy", url: "https://leetcode.com/problems/number-of-1-bits/" },
+      { id: "lc338", lc: 338, name: "Counting Bits", diff: "Easy", url: "https://leetcode.com/problems/counting-bits/" },
+      { id: "lc190", lc: 190, name: "Reverse Bits", diff: "Easy", url: "https://leetcode.com/problems/reverse-bits/" },
+    ]},
+    { pattern: "14 · Math & Matrix", note: "Common OA fillers; know the simulation tricks.", items: [
+      { id: "lc48", lc: 48, name: "Rotate Image", diff: "Medium", url: "https://leetcode.com/problems/rotate-image/" },
+      { id: "lc54", lc: 54, name: "Spiral Matrix", diff: "Medium", url: "https://leetcode.com/problems/spiral-matrix/" },
+      { id: "lc50", lc: 50, name: "Pow(x, n)", diff: "Medium", url: "https://leetcode.com/problems/powx-n/" },
+    ]},
+  ],
 
   /* ---- SEASON GRIND PLAN (resume submitted ✓ · Jul 13 → season) ---- */
   plan: [

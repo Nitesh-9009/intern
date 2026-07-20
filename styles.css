@@ -148,6 +148,28 @@ body {
 .ds-k { flex: 0 0 150px; font-weight: 700; font-size: 12.5px; color: var(--navy); }
 .ds-v { flex: 1; font-size: 12.5px; color: #333; line-height: 1.45; }
 @media (max-width: 560px) { .ds-rule { flex-direction: column; gap: 2px; } .ds-k { flex: none; } }
+
+/* DSA Pattern Sheet */
+.dsa-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 10px; font-size: 12.5px; color: var(--muted); }
+.dsa-legend b { color: var(--text); }
+.dsa-row { display: flex; align-items: center; gap: 11px; padding: 7px 0; border-top: 1px solid var(--line); }
+.dsa-row:first-of-type { border-top: none; }
+.dsa-status {
+  width: 27px; height: 27px; border-radius: 50%; border: 1.5px solid var(--line);
+  background: #fff; cursor: pointer; font-size: 14px; flex: none; color: var(--muted);
+  font-family: inherit; line-height: 1; display: grid; place-items: center;
+}
+.dsa-row.st-solved .dsa-status { background: var(--green); border-color: var(--green); color: #fff; }
+.dsa-row.st-revise .dsa-status { background: var(--brown); border-color: var(--brown); color: #fff; }
+.dsa-info { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1; }
+.dsa-lc { font-size: 11px; color: var(--muted); font-weight: 700; flex: none; width: 46px; }
+.dsa-name { font-size: 13.5px; font-weight: 600; color: var(--navy); text-decoration: none; }
+.dsa-name:hover { text-decoration: underline; }
+.dsa-row.st-solved .dsa-name { color: var(--muted); text-decoration: line-through; }
+.dsa-diff { margin-left: auto; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; flex: none; }
+.diff-easy { background: #e8f3ec; color: var(--green); }
+.diff-medium { background: #fef3e2; color: var(--brown); }
+.diff-hard { background: #fde9e8; color: var(--accent); }
 .tag-dsa { background: #e7eefb; color: #2f6fb0; }
 .tag-sql { background: #fde9e8; color: var(--accent); }
 .tag-ml { background: #e8f3ec; color: var(--green); }
