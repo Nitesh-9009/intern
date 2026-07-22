@@ -23,6 +23,7 @@ const NITESH = {
       { view: "plan", icon: "▦", label: "Season Plan" },
       { view: "skills", icon: "▤", label: "Skills Tracker" },
       { view: "dsa", icon: "⊞", label: "DSA Sheet" },
+      { view: "cpp", icon: "🧠", label: "C++ for OAs" },
       { view: "companies", icon: "★", label: "Target Companies" },
       { view: "stories", icon: "❝", label: "Interview Stories" },
       { view: "contacts", icon: "☏", label: "Senior Contacts" },
@@ -36,6 +37,7 @@ const NITESH = {
       plan: ["Season Plan", "Jul 13 → season · core OA prep → peak + apply → execute live. Grind harder now."],
       skills: ["Skills Tracker", "Count every problem. Momentum compounds."],
       dsa: ["DSA Pattern Sheet", "The curated OA-ready set, by pattern. Tap the circle: to-do → solved → revise. Live the 25-min rule."],
+      cpp: ["C++ / OOP for OAs", "Cheatsheet + resources for the recall MCQs — sizeof, error types, file streams, OOP output."],
       companies: ["Target Companies", "Know your targets before the season opens. Editable — make it yours."],
       resume: ["Resume Fixes", "Fix the critical errors today. They get you rejected before content is read."],
       resumes: ["Tailored Resumes", "Genuine content only · pick a role version and 1- or 2-page length, then Download / Print as PDF."],
@@ -161,6 +163,95 @@ const NITESH = {
       { id: "lc50", lc: 50, name: "Pow(x, n)", diff: "Medium", url: "https://leetcode.com/problems/powx-n/" },
     ]},
   ],
+
+  /* ---- C++ / OOP FOR OAs (cheatsheet + resources) ---- */
+  cppOA: {
+    cheats: [
+      { title: "1 · sizeof — class size in bytes",
+        code: "class X { int a, b; float c; public: void top(); int pop(); };\n// sizeof(X) == 12   (4 + 4 + 4)",
+        points: [
+          "<b>Member functions take ZERO object memory</b> — only non-static <b>data members</b> count. The example is 4+4+4 = <code>12 bytes</code>.",
+          "<b>Padding / alignment:</b> members align to their own size; total size rounds up to the largest member's alignment. e.g. <code>char c; int i;</code> &rarr; 8, not 5.",
+          "<b>Empty class</b>, or a class with <b>only functions</b> &rarr; <code>1 byte</code> (so each object gets a unique address).",
+          "<b>static</b> data members are <b>not</b> counted (stored separately).",
+          "One or more <b>virtual</b> functions &rarr; add a hidden <b>vptr = 8 bytes</b> (64-bit). A pointer / reference member &rarr; 8 bytes.",
+          "<b>union size = its LARGEST member</b> (all members share one slot), then padded. <code>union U { char c; int i; double d; };</code> &rarr; <code>8 bytes</code> — a classic companion to the class/struct sizeof MCQ."
+        ] },
+      { title: "2 · Types of errors — 'what error is this?'",
+        points: [
+          "<b>Compile-time:</b> syntax / type errors — missing <code>;</code>, undeclared variable, type mismatch, accessing a private member.",
+          "<b>Linker ('undefined reference'):</b> a function <b>declared but never defined</b>, then used. \u26a0 Sony trick — a declared-but-empty <code>pop()</code> you call = <b>linker</b> error, not compile.",
+          "<b>Runtime:</b> segmentation fault (bad pointer / out-of-bounds), divide-by-zero, <code>bad_alloc</code>, <code>out_of_range</code>.",
+          "<b>Logical:</b> compiles and runs, just wrong output.",
+          "<b>Warning</b> is NOT an error (uninitialized / unused variable)."
+        ] },
+      { title: "3 · File handling — seekg / seekp / ios flags",
+        points: [
+          "<b>seekg</b> = seek the <b>get</b> pointer (input). <b>seekp</b> = seek the <b>put</b> pointer (output).",
+          "<code>seekg(m, ios::beg)</code> &rarr; m bytes from the <b>beginning</b>.",
+          "<code>seekg(m, ios::cur)</code> &rarr; m bytes <b>forward from the current</b> position.",
+          "<code>seekg(m, ios::end)</code> &rarr; m bytes from the <b>end</b> (m is usually negative).",
+          "<code>tellg()</code> / <code>tellp()</code> &rarr; the current position. \u26a0 <code>fout</code> (output) normally uses <b>seekp</b>; <code>seekg</code> on it is a trap."
+        ] },
+      { title: "4 · iostream manipulators — width / setw / precision",
+        points: [
+          "<code>cout.width(5)</code> or <code>cout &lt;&lt; setw(5)</code> sets the field width for the <b>NEXT output only</b>, then resets — it is <b>non-sticky</b>.",
+          "<code>precision()</code>, <code>fill()</code> and format flags <b>persist</b> across outputs; <b>width does not</b>.",
+          "Default fill = space, numbers right-justified. <code>setw(5) &lt;&lt; 42</code> &rarr; <code>'&nbsp;&nbsp;&nbsp;42'</code>. (<code>setw</code> needs <code>&lt;iomanip&gt;</code>.)"
+        ] },
+      { title: "5 · OOP output prediction — the rules",
+        points: [
+          "<b>Constructor order:</b> Base &rarr; member objects &rarr; Derived. <b>Destructor:</b> exact reverse.",
+          "<b>virtual &rarr; runtime binding</b> (a base pointer calls the derived override). <b>Non-virtual &rarr; static binding</b> (uses the declared type).",
+          "<b>Name hiding:</b> redefining a base function in the derived class hides <b>all</b> base overloads of that name (unless <code>using Base::fn;</code>).",
+          "<b>Object slicing:</b> assigning a derived object to a base object <b>by value</b> chops off the derived part.",
+          "<b>static</b> members are shared (one copy). <b>Pure virtual (=0)</b> &rarr; abstract class, cannot be instantiated.",
+          "<b>Non-virtual destructor</b> + delete via a base pointer &rarr; the derived destructor won't run (leak). A <b>virtual destructor</b> fixes it."
+        ] },
+      { title: "6 · Coded OOP MCQ — constructor / destructor order",
+        code: "class A { public: A(){ cout<<\"A\"; } ~A(){ cout<<\"a\"; } };\nclass B : public A { public: B(){ cout<<\"B\"; } ~B(){ cout<<\"b\"; } };\nint main(){ B obj; return 0; }\n// Output:  ABba",
+        points: [
+          "Construction runs <b>base &rarr; derived</b>: <code>A()</code> then <code>B()</code> &rarr; <code>AB</code>.",
+          "Destruction is the <b>exact reverse</b>: <code>~B()</code> then <code>~A()</code> &rarr; <code>ba</code>.",
+          "Final output: <code>ABba</code>. Any member objects build <b>after</b> the base and <b>before</b> the derived constructor body."
+        ] },
+      { title: "7 · Coded OOP MCQ — virtual vs non-virtual dispatch",
+        code: "class Base { public: virtual void f(){ cout<<\"Base\"; } };\nclass Der  : public Base { public: void f(){ cout<<\"Der\"; } };\nint main(){ Base* p = new Der(); p->f(); }\n// Output:  Der   (remove 'virtual' -> Base)",
+        points: [
+          "<code>f()</code> is <b>virtual</b> &rarr; <b>runtime binding</b>: the object is a <code>Der</code>, so <code>Der::f()</code> runs &rarr; <code>Der</code>.",
+          "Drop the <code>virtual</code> keyword &rarr; <b>static binding</b> on the pointer's declared type <code>Base</code> &rarr; prints <code>Base</code>.",
+          "'Does the base pointer call base or derived?' is the single most common OOP-output trap."
+        ] },
+      { title: "8 · Coded OOP MCQ — object slicing",
+        code: "class Base { public: virtual void f(){ cout<<\"Base\"; } };\nclass Der  : public Base { public: void f(){ cout<<\"Der\"; } };\nint main(){ Der d; Base b = d; b.f(); }\n// Output:  Base   (value copy -> derived part sliced off)",
+        points: [
+          "Assigning a derived object to a base <b>by value</b> (<code>Base b = d;</code>) <b>slices</b> off the <code>Der</code> part.",
+          "<code>b</code> is a genuine <code>Base</code> object, so even though <code>f()</code> is virtual it prints <code>Base</code>.",
+          "Virtual dispatch only works through a <b>pointer or reference</b> — <code>Base&amp; b = d;</code> would print <code>Der</code>."
+        ] }
+    ],
+    resources: [
+      { cat: "Start here — learn + drill", items: [
+        { name: "learncpp.com", desc: "Best free structured C++ course (OOP, memory, streams)", url: "https://www.learncpp.com/" },
+        { name: "Sanfoundry — 1000+ C++ MCQs", desc: "Topic-wise MCQs with explanations — your goldmine", url: "https://www.sanfoundry.com/1000-c-plus-plus-questions-answers/" },
+        { name: "GeeksforGeeks — C++", desc: "Articles + 'Output of C++ Program' + quizzes", url: "https://www.geeksforgeeks.org/c-plus-plus/" },
+      ]},
+      { cat: "MCQ practice banks", items: [
+        { name: "IndiaBix — C++ Programming", desc: "Classic MCQ bank by topic", url: "https://www.indiabix.com/technical/cpp-programming/" },
+        { name: "InterviewBit — C++ / OOPs", desc: "Interview-style Q&A", url: "https://www.interviewbit.com/cpp-interview-questions/" },
+        { name: "Sanfoundry — OOP MCQs", desc: "1000+ OOP MCQs — output prediction, virtual, inheritance", url: "https://www.sanfoundry.com/1000-object-oriented-programming-questions-answers/" },
+      ]},
+      { cat: "Topic deep-dives", items: [
+        { name: "File I/O (seekg / seekp)", desc: "cplusplus.com — clear examples", url: "https://cplusplus.com/doc/tutorial/files/" },
+        { name: "Structure padding & alignment", desc: "GfG — the sizeof rules explained", url: "https://www.geeksforgeeks.org/structure-member-alignment-padding-and-data-packing/" },
+        { name: "Virtual functions", desc: "GfG — runtime polymorphism", url: "https://www.geeksforgeeks.org/virtual-function-cpp/" },
+      ]},
+      { cat: "Reference & book", items: [
+        { name: "cppreference.com", desc: "Authoritative reference — confirm exact rules", url: "https://en.cppreference.com/w/cpp" },
+        { name: "Test Your C++ Skills — Y. Kanetkar", desc: "Classic output-prediction MCQ book", url: "https://www.google.com/search?q=Test+Your+C%2B%2B+Skills+Kanetkar" },
+      ]},
+    ]
+  },
 
   /* ---- SEASON GRIND PLAN (resume submitted ✓ · Jul 13 → season) ---- */
   plan: [

@@ -6,5 +6,8 @@ Thumbs.db
 # Local backups exported from the app
 intern-prep-backup-*.json
 
+# Private local chat log (never push)
+CHAT-HISTORY.md
+
 # Vercel
 .vercel

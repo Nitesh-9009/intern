@@ -377,6 +377,31 @@ views.dsa = () => {
   return wrap;
 };
 
+/* ---------- C++ / OOP for OAs (cheatsheet + resources) ---------- */
+views.cpp = () => {
+  const wrap = el("div");
+  const data = SEED.cppOA || { cheats: [], resources: [] };
+  (data.cheats || []).forEach(sec => {
+    const card = el("div", "card");
+    const codeHtml = sec.code ? `<pre>${esc(sec.code)}</pre>` : "";
+    const pts = `<ul class="cpp-list">${(sec.points || []).map(p => `<li>${p}</li>`).join("")}</ul>`;
+    card.innerHTML = `<div class="card-h"><h3>${esc(sec.title)}</h3></div>${codeHtml}${pts}`;
+    wrap.appendChild(card);
+  });
+  (data.resources || []).forEach(group => {
+    wrap.appendChild(el("div", "section-title", group.cat));
+    const card = el("div", "card");
+    group.items.forEach(r => {
+      const a = el("a", "res-link");
+      a.href = r.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+      a.innerHTML = `<div><div class="r-name">${esc(r.name)}</div><div class="r-desc">${esc(r.desc)}</div></div><span class="r-arrow">↗</span>`;
+      card.appendChild(a);
+    });
+    wrap.appendChild(card);
+  });
+  return wrap;
+};
+
 /* ---------- Skills ---------- */
 views.skills = () => {
   const wrap = el("div", "grid");
